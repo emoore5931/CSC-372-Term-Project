@@ -1,2 +1,1 @@
-##CSC 362##
-#Term Project#
+CSC-372 Term Project
