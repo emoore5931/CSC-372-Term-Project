@@ -3,6 +3,19 @@
     font-size: 12px;
 }
 
+:root {
+    --primary-color: white;
+    --secondary-color: black;
+    --tertiary-color: grey;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
 /*Text Styling*/
 .text-lg {
     font-size: 28px;
@@ -50,8 +63,44 @@
 banner {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 100vw;
     height: 40px;
-    color: white;
-    background-color: black;
+    position: relative;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    /* padding: 5px 0; */
+}
+
+.banner-logo {
+    flex: 1;
+}
+
+.banner-title {
+    flex: 2;
+}
+
+.banner-button-container {
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.banner-button {
+    height: auto;
+    width: 100px;
+    font-weight: bold;
+    border: none;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.banner-button:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    cursor: pointer;
+    transform: scale(1.5, 1.5);
 }
