@@ -1,0 +1,19 @@
+:root {
+    --hero-height: 550px;
+    --hero-details-height: 315px;
+    --hero-details-width: 500px;
+}
+
+.hero {
+    width: 100%;
+    height: var(--hero-height);
+}
+
+.hero-details-container {
+    justify-content: center;
+    width: var(--hero-details-width);
+    height: var(--hero-details-height);
+    border: 2.5px solid var(--secondary-color-light);
+    margin: auto;
+    margin-top: calc((var(--hero-height) - var(--hero-details-height)) / 2);
+}
