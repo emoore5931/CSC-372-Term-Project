@@ -17,6 +17,7 @@
 }
 
 .hero-details-container {
+    background-color: rgba(0, 0, 0, 0.35);
     position: relative;
     justify-content: center;
     width: var(--hero-details-width);
@@ -24,6 +25,15 @@
     border: 2.5px solid var(--secondary-color-light);
     margin: auto;
     z-index: 5;
+}
+
+.hero-details-button {
+    margin-top: 5px;
+    background-color: transparent;
+}
+
+.hero-details-button:hover {
+    background-color: transparent;
 }
 
 .hero-slideshow-container {
@@ -37,9 +47,4 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.hero-slideshow-container > img {
-    height: auto; 
-    width: 100%;
 }
