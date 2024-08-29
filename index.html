@@ -4,8 +4,12 @@
         <title>CSC-372 Project</title>
         <link type="image/x-icon" rel="icon" href="./resources/images/logos/boxed-eats-favicon-black.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Styling-->
         <link rel="stylesheet" href="./default-style.css"/>
-        <link rel="stylesheet" href="./index.css"/>
+        <link rel="stylesheet" href="./app/index/index.css"/>
+        <!--Font Awesome-->
+        <script defer src="./resources/fontawesome/fontawesome.js"></script>
+        <script defer src="./resources/fontawesome/solid.js"></script>
     </head>
     <body>
         <header>
@@ -15,21 +19,24 @@
                 </div>
                 <div class="banner-title header-md">Boxed Eats</div>
                 <div class="banner-button-container">
-                    <button class="banner-button">Home</button>
-                    <button class="banner-button">Shop</button>
-                    <button class="banner-button">Your Account</button>
-                    <button class="banner-button">Contact Us</button>
+                    <button class="banner-button"><i class="fa-solid fa-house"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-user"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-envelope"></i></button>
                 </div>
-                
             </banner>
         </header>
         <main>
             <div class="hero">
+                <!--Todo: https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+                <div class="hero-slideshow-container"></div>
                 <div class="flex-container-col hero-details-container">
                     <div class="header-lg text-center">Welcome to Boxed Eats!</div>
                     <div class="text-lg text-center">A state of the art solution for meal planning.</div>
                     <div class="center-horizontal">
-                        <button class="button button-primary button-md" href=".">Start Shopping</button>
+                        <button class="button button-primary button-md" href=".">
+                            Start Shopping <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
                     </div>
                 </div>
             </div>
