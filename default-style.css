@@ -302,6 +302,11 @@ a.icon-link {
     color: inherit;
 }
 
+a.icon-link:active > svg {
+    transform: scale(1.15);
+    color: white;
+}
+
 a.icon-link > svg {
     font-size: var(--text-size-lg);
 }
