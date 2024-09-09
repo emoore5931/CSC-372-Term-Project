@@ -1,0 +1,50 @@
+:root {
+    --hero-height: 550px;
+    --hero-details-height: 315px;
+    --hero-details-width: 500px;
+}
+
+.hero {
+    width: 100%;
+    height: var(--hero-height);
+    display: grid;
+    align-items: start;
+}
+
+.hero > * {
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.hero-details-container {
+    background-color: rgba(0, 0, 0, 0.35);
+    position: relative;
+    justify-content: center;
+    width: var(--hero-details-width);
+    height: var(--hero-details-height);
+    border: 2.5px solid var(--secondary-color-light);
+    margin: auto;
+    z-index: 5;
+}
+
+.hero-details-button {
+    margin-top: 5px;
+    background-color: transparent;
+}
+
+.hero-details-button:hover {
+    background-color: transparent;
+}
+
+.hero-slideshow-container {
+    position: relative;
+    z-index: 1;
+    height: var(--hero-height);
+    width: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+         url("./../../resources/images/hero/hero_placeholder_1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

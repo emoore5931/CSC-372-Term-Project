@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSC-372 Project</title>
+        <link type="image/x-icon" rel="icon" href="./../../resources/images/logos/boxed-eats-favicon-black.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Styling-->
+        <link rel="stylesheet" href="./../../default-style.css"/>
+        <link rel="stylesheet" href="./login.css"/>
+        <!--Font Awesome-->
+        <script defer src="./../../resources/fontawesome/fontawesome.js"></script>
+        <script defer src="./../../resources/fontawesome/solid.js"></script>
+        <script defer src="./../../resources/fontawesome/brands.js"></script>
+        <!--Scripts-->
+        <script defer src="./login.js"></script>
+    </head>
+    <body>
+        <header>
+            <banner>
+                <div class="banner-logo">
+                    <img src="./../../resources/images/logos/boxed-eats-favicon-color.png" alt="Boxed Eats Logo"/>
+                </div>
+                <div class="banner-title header-md">Boxed Eats</div>
+                <div class="banner-button-container">
+                    <button class="banner-button" onclick="window.location.href = './../../index.html'"><i class="fa-solid fa-house"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-user"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-envelope"></i></button>
+                </div>
+            </banner>
+        </header>
+        <main class="flex-container-row" style="justify-content: center;">
+            <div class="account-entry-container">
+                <div id="entryCover" class="entry-cover flex-container-col">
+                    <h2 id="coverHeader" class="header-lg text-center">New to Boxed Eats?</h2>
+                    <div class="flex-container-row" style="justify-content: center;">
+                        <button id="coverButton" class="button-secondary" onclick="EntryCover.stateSwitch()">Signup Here</button>
+                    </div>
+                </div>
+                <div class="flex-container-row account-entry-forms-container">
+                    <div class="login-container">
+                        <form id="login" class="flex-container-col">
+                            <h2 class="header-md text-center">Login</h2>
+                            <input class="text-input" id="username" type="text" required placeholder="Username"/>
+                            <input class="text-input" id="password" type="password" placeholder="Password" required />
+                            <input id="submit" class="button-sm button-primary" type="submit" value="Submit"/>
+                        </form>
+                    </div>
+                    <div class="signup-container">
+                        <form id="signup" class="flex-container-col">
+                            <h2 class="header-md text-center">Signup</h2>
+                            <input class="text-input" id="newFirstName" type="text" placeholder="First Name" required/>
+                            <input class="text-input" id="newLastName" type="text" placeholder="Last Name" required/>
+                            <input class="text-input" id="newUsername" type="text" placeholder="Username" required/>
+                            <input class="text-input" id="newPassword" type="password" placeholder="Password" required/>
+                            <input id="newAccountSubmit" class="button-sm button-primary" type="submit" value="Submit"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="flex-container-row footer-container">
+                <div class="flex-container-col text-sm" style="justify-content: end; height: 100%;">
+                    Application designed by Ethan Moore, 2024
+                </div>
+                <div class="flex-container-row">
+                    <!--Github Link-->
+                    <a class="no-dec icon-link footer-icon" href="https://github.com/emoore5931/CSC-372-Term-Project"><i class="fa-brands fa-github"></i></a>
+                    <!--Email Link-->
+                    <a class="no-dec icon-link footer-icon" href="mailto:emmoore4@uncg.edu"><i class="fa-solid fa-at"></i></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

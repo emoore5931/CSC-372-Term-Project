@@ -2,30 +2,58 @@
 <html lang="en">
     <head>
         <title>CSC-372 Project</title>
-        <link type="image/x-icon" rel="icon" href=""/>
+        <link type="image/x-icon" rel="icon" href="./resources/images/logos/boxed-eats-favicon-black.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Styling-->
         <link rel="stylesheet" href="./default-style.css"/>
+        <link rel="stylesheet" href="./app/index/index.css"/>
+        <!--Font Awesome-->
+        <script defer src="./resources/fontawesome/fontawesome.js"></script>
+        <script defer src="./resources/fontawesome/solid.js"></script>
+        <script defer src="./resources/fontawesome/brands.js"></script>
     </head>
     <body>
         <header>
             <banner>
                 <div class="banner-logo">
-                    <img/>
+                    <img src="./resources/images/logos/boxed-eats-favicon-color.png" alt="Boxed Eats Logo"/>
                 </div>
-                <div class="banner-title">Boxed Eats</div>
-                <div class="banner-button-container"></div>
+                <div class="banner-title header-md">Boxed Eats</div>
+                <div class="banner-button-container">
+                    <button class="banner-button"><i class="fa-solid fa-house"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-user"></i></button>
+                    <button class="banner-button"><i class="fa-solid fa-envelope"></i></button>
+                </div>
             </banner>
-            <div class="flex-container-row"></div>
-            <div class="flex-container-col">
-                <div class="header-lg">Welcome to Boxed Eats!</div>
-                <div class="text-lg">A state of the art solution for meal planning.</div>
-            </div>
         </header>
         <main>
-            <button class="" href="">Start Shopping</button>
+            <div class="hero">
+                <!--Todo: https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+                <div class="hero-slideshow-container"></div>
+                <div class="flex-container-col hero-details-container">
+                    <div class="header-lg text-center">Welcome to Boxed Eats!</div>
+                    <div class="text-lg text-center">An easy and healthy solution for meal planning.</div>
+                    <div class="center-horizontal">
+                        <button class="button button-primary button-md hero-details-button" href=".">
+                            Start Shopping <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
-            <div class="flex-container-row"></div>
+            <div class="flex-container-row footer-container">
+                <div class="flex-container-col text-sm" style="justify-content: end; height: 100%;">
+                    Application designed by Ethan Moore, 2024
+                </div>
+                <div class="flex-container-row">
+                    <!--Github Link-->
+                    <a class="no-dec icon-link footer-icon" href="https://github.com/emoore5931/CSC-372-Term-Project"><i class="fa-brands fa-github"></i></a>
+                    <!--Email Link-->
+                    <a class="no-dec icon-link footer-icon" href="mailto:emmoore4@uncg.edu"><i class="fa-solid fa-at"></i></a>
+                </div>
+            </div>
         </footer>
     </body>
 </html>

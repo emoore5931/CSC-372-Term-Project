@@ -1,19 +1,83 @@
+/*
+This stylesheet should be linked to every page in this application to define default styling rules.
+This stylesheet defines global styling rules and style variables to be used throughout the application.
+*/
+
+/*
+Styling rules specific to a page will be found in the stylesheet labled with the related pages 
+name(s) within the app directory. (EX: index.css)
+*/
+
 * {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
 
+:root {
+    /*Note: if changing any color values be sure to change "color" and "color-vals" accordingly*/
+
+    /*Color Pallete*/
+    --primary-color: rgb(202, 215, 231);
+    --primary-color-light: rgb(197, 212, 231);
+    --primary-color-dark: rgb(184, 205, 231);
+    
+    --secondary-color: rgb(205, 114, 52);
+    --secondary-color-light: rgb(207, 142, 99);
+    --secondary-color-dark: rgb(208, 91, 13);
+
+    --tertiary-color: rgb(157, 141, 38);
+    --tertiary-color-light: rgb(148, 140, 86);
+    --tertiary-color-dark: rgb(156, 136, 6);
+
+    /*Raw Color Values*/
+    --primary-color-vals: 202, 215, 231;
+    --primary-color-light-vals: 197, 212, 231;
+    --primary-color-dark-vals: 184, 205, 231;
+
+    --secondary-color-vals: 205, 114, 52;
+    --secondary-color-light-vals: 207, 142, 99;
+    --secondary-color-dark-vals: 208, 91, 13;
+
+    --tertiary-color-vals: 157, 141, 38;
+    --tertiary-color-light-vals:  148, 140, 86;
+    --tertiary-color-dark-vals: 156, 136, 6;
+
+    /*Text Sizes*/
+    --text-size-header-lg: 32px;
+    --text-size-header-md: 24px;
+    --text-size-header-sm: 20px;
+    --text-size-lg: 28px;
+    --text-size-md: 18px;
+    --text-size-sm: 12px;
+
+    /*Constant Element Sizes*/
+    --banner-height: 40px;
+    --footer-height: 50px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: var(--primary-color-dark);
+}
+
 /*Text Styling*/
 .text-lg {
-    font-size: 28px;
+    font-size: var(--text-size-lg);
 }
 
 .text-md {
-    font-size: 18px;
+    font-size: var(--text-size-md);
 }
 
 .text-sm {
-    font-size: 12px;
+    font-size: var(--text-size-sm);
+}
+
+.text-center {
+    text-align: center;
 }
 
 .bold {
@@ -21,17 +85,17 @@
 }
 
 .header-lg {
-    font-size: 32px;
+    font-size: var(--text-size-header-lg);
     font-weight: bold;
 }
 
 .header-md {
-    font-size: 24px;
+    font-size: var(--text-size-header-md);
     font-weight: bold;
 }
 
 .header-sm {
-    font-size: 24px;
+    font-size: var(--text-size-header-sm);
     font-weight: bold;
 }
 
@@ -46,12 +110,203 @@
     flex-direction: column;
 }
 
+div.center-horizontal {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /*Banner Styling*/
 banner {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
-    height: 40px;
+    height: var(--banner-height);
+    position: -webkit-sticky; /*Safari support*/
+    position: fixed;
+    top: 0;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    overflow: hidden;
+    border-bottom: 1px solid var(--secondary-color-dark);
+    padding: 0 10px;
+    z-index: 10;
+}
+
+.banner-logo {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.banner-logo > img {
+    width: auto;
+    height: 100%;
+}
+
+.banner-title {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.banner-button-container {
+    margin: 0 30px;
+    flex: 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.banner-button {
+    height: auto;
+    width: 100px;
+    font-weight: bold;
+    border: none;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+.banner-button:hover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    transform: scale(1.5, 1.5);
+}
+
+/*Sections*/
+main {
+    position: relative;
+    top: var(--banner-height);
+    background-color: var(--primary-color-light);
+    color: var(--secondary-color);
+    min-height: calc(100vh - (var(--banner-height) + var(--footer-height)));
+}
+
+footer {
+    height: var(--footer-height);
+    width: 100%;
+    border-top: 1px solid var(--secondary-color-dark);
+    background-color: var(--primary-color-dark);
+    color: var(--secondary-color-dark);
+    position: relative;
+    bottom: 0;
+    z-index: 10;
+}
+
+footer > *.footer-container {
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin: 0 2px 0 16px;
+}
+
+/*Buttons*/
+button {
+    min-width: 80px;
+    min-height: 30px;
+    max-width: 400px;
+    max-height: 150px;
+    border-radius: 2px;
+    border-style: solid;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.button-max {
+    width: 400px;
+    height: 150px;
+    border-width: 5px;
+    font-size: var(--text-size-lg);
+}
+
+.button-lg {
+    width: 200px;
+    height: 75px;
+    border-width: 5px;
+    font-size: var(--text-size-md);
+}
+
+.button-md {
+    width: 150px;
+    height: 56.25px;
+    border-width: 3.5px;
+    font-size: var(--text-size-md);
+}
+
+.button-sm {
+    width: 100px;
+    height: 37.5px;
+    border-width: 2px;
+    font-size: var(--text-size-sm);
+}
+
+.button-min {
+    width: 80px;
+    height: 30px;
+    border-width: 1.5px;
+    font-size: var(--text-size-sm);
+}
+
+.button-primary {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+}
+
+.button-primary:hover {
+    background-color: var(--primary-color-dark);
+    color: var(--tertiary-color-dark);
+    border-color: var(--tertiary-color-dark);
+}
+
+.button-secondary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.button-secondary:hover {
+    background-color: var(--secondary-color-dark);
+    color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+}
+
+/*Links*/
+a.no-dec {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.no-dec::after {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.icon-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.icon-link:active > svg {
+    transform: scale(1.15);
     color: white;
-    background-color: black;
+}
+
+a.icon-link > svg {
+    font-size: var(--text-size-lg);
 }
