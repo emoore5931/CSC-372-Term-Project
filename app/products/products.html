@@ -6,13 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Styling-->
         <link rel="stylesheet" href="./../../default-style.css"/>
-        <link rel="stylesheet" href="./login.css"/>
+        <link rel="stylesheet" href="./products.css"/>
         <!--Font Awesome-->
         <script defer src="./../../resources/fontawesome/fontawesome.js"></script>
         <script defer src="./../../resources/fontawesome/solid.js"></script>
         <script defer src="./../../resources/fontawesome/brands.js"></script>
-        <!--Scripts-->
-        <script defer src="./login.js"></script>
+        <script defer src="./../../resources/fontawesome/regular.js"></script>
     </head>
     <body>
         <header>
@@ -23,40 +22,48 @@
                 <div class="banner-title header-md">Boxed Eats</div>
                 <div class="banner-button-container">
                     <button class="banner-button" onclick="window.location.href = './../../index.html'"><i class="fa-solid fa-house"></i></button>
-                    <button class="banner-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <button class="banner-button" onclick="window.location.href = './products.html'"><i class="fa-solid fa-cart-shopping"></i></button>
                     <button class="banner-button"><i class="fa-solid fa-user"></i></button>
                     <button class="banner-button"><i class="fa-solid fa-envelope"></i></button>
                 </div>
             </nav>
         </header>
-        <main class="flex-container-row" style="justify-content: center;">
-            <div class="account-entry-container">
-                <div id="entryCover" class="entry-cover flex-container-col">
-                    <h2 id="coverHeader" class="header-lg text-center">New to Boxed Eats?</h2>
-                    <div class="flex-container-row" style="justify-content: center;">
-                        <button id="coverButton" class="button-secondary" onclick="EntryCover.stateSwitch()">Signup Here</button>
+        <main>
+            <h2 class="text-center">Products</h2>
+            <hr>
+            <div class="searchbar-container"></div>
+                <div class="searchbar">
+                    <input type="text" placeholder="Search...">
+                    <button class="icon-button" id="searchbarSubmit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            <div id="productsContainer" class="flex-container-col">
+              <section>
+                <h3 class="text-center">Featured Deals</h3>
+                <div class="flex-container-row" id="featuredDeals">
+                    <div class="product-card product-card-lg">
+                        <img src="" alt="Product Image"/>
+                        <h4>Product Name</h4>
+                        <div class="flex-container-row">
+                            <button class="icon-button"><i class="fa-regular fa-eye"></i></button>
+                            <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-container-row account-entry-forms-container">
-                    <div class="login-container">
-                        <form id="login" class="flex-container-col">
-                            <h2 class="header-md text-center">Login</h2>
-                            <input class="text-input" id="username" type="text" required placeholder="Username"/>
-                            <input class="text-input" id="password" type="password" placeholder="Password" required />
-                            <input id="submit" class="button-sm button-primary" type="submit" value="Submit"/>
-                        </form>
-                    </div>
-                    <div class="signup-container">
-                        <form id="signup" class="flex-container-col">
-                            <h2 class="header-md text-center">Signup</h2>
-                            <input class="text-input" id="newFirstName" type="text" placeholder="First Name" required/>
-                            <input class="text-input" id="newLastName" type="text" placeholder="Last Name" required/>
-                            <input class="text-input" id="newUsername" type="text" placeholder="Username" required/>
-                            <input class="text-input" id="newPassword" type="password" placeholder="Password" required/>
-                            <input id="newAccountSubmit" class="button-sm button-primary" type="submit" value="Submit"/>
-                        </form>
+              </section>
+              <section>
+                <h3 class="text-center">All Kits</h3>
+                <div class="flex-container-row" id="allKits">
+                    <div class="product-card product-card-md">
+                        <img src="" alt="Product Image"/>
+                        <h4>Product Name</h4>
+                        <div class="flex-container-row">
+                            <button class="icon-button"><i class="fa-regular fa-eye"></i></button>
+                            <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+                        </div>
                     </div>
                 </div>
+              </section>
             </div>
         </main>
         <footer>

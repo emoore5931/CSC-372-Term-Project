@@ -10,7 +10,6 @@ name(s) within the app directory. (EX: index.css)
 
 * {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
 }
 
 :root {
@@ -118,7 +117,7 @@ div.center-horizontal {
 }
 
 /*Banner Styling*/
-banner {
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -155,6 +154,10 @@ banner {
     text-align: center;
 }
 
+.banner-title:hover {
+    cursor: default;
+}
+
 .banner-button-container {
     margin: 0 30px;
     flex: 4;
@@ -179,13 +182,14 @@ banner {
     transform: scale(1.5, 1.5);
 }
 
-/*Sections*/
+/*Page Sections*/
 main {
     position: relative;
     top: var(--banner-height);
     background-color: var(--primary-color-light);
     color: var(--secondary-color);
     min-height: calc(100vh - (var(--banner-height) + var(--footer-height)));
+    overflow-y: auto;
 }
 
 footer {
@@ -197,6 +201,7 @@ footer {
     position: relative;
     bottom: 0;
     z-index: 10;
+    margin-top: 41px;
 }
 
 footer > *.footer-container {
@@ -309,4 +314,10 @@ a.icon-link:active > svg {
 
 a.icon-link > svg {
     font-size: var(--text-size-lg);
+}
+
+button.icon-button {
+    border: none;
+    background-color: transparent;
+    min-width: 10px !important;
 }

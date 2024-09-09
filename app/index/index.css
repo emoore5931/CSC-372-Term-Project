@@ -27,6 +27,10 @@
     z-index: 5;
 }
 
+.hero-details-container:hover {
+    cursor: default;
+}
+
 .hero-details-button {
     margin-top: 5px;
     background-color: transparent;
