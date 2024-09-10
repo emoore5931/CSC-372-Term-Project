@@ -28,6 +28,10 @@ name(s) within the app directory. (EX: index.css)
     --tertiary-color-light: rgb(148, 140, 86);
     --tertiary-color-dark: rgb(156, 136, 6);
 
+    --quatrenary-color: rgb(244, 244, 244);
+    --quatrenary-color-light: rgb(255, 255, 255);
+    --quatrenary-color-dark: rgb(227, 227, 227);
+
     /*Raw Color Values*/
     --primary-color-vals: 202, 215, 231;
     --primary-color-light-vals: 197, 212, 231;
@@ -60,6 +64,10 @@ body {
     padding: 0;
     margin: 0;
     background-color: var(--primary-color-dark);
+}
+
+hr {
+    border-top: 1px solid var(--secondary-color-dark);
 }
 
 /*Text Styling*/

@@ -1,3 +1,5 @@
+/*Styling specific to index.html*/
+
 :root {
     --hero-height: 550px;
     --hero-details-height: 315px;
@@ -51,4 +53,85 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/*About Us Styling*/
+#aboutUs {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+
+#aboutUs > h2 {
+    border-bottom: 2px solid var(--tertiary-color-light);
+    width: 90%;
+    margin: auto;
+    padding-bottom: 4px;
+}
+
+#aboutUs > section {
+    width: 90%;
+    height: 300px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row;
+    color: var(--secondary-color-dark) !important;
+    background-color: var(--quatrenary-color);
+    padding: 10px;
+    border: 3px solid var(--tertiary-color-dark);
+}
+
+#aboutUs > section > img {
+    display: block;
+    flex: 1;
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+}
+
+.about-us-section-content-container {
+    flex: 1;
+}
+
+/*Promo Styling*/
+.promo {
+    width: 90%;
+    height: 350px;
+    margin: 40px auto;
+    color: var(--secondary-color-dark) !important;
+    background-color: var(--quatrenary-color);
+    padding: 10px;
+    border: 3px solid var(--tertiary-color-dark);
+    overflow: hidden;
+}
+
+.promo-image {
+    display: block;
+    height: auto;
+    width: 60%;
+    flex: 1.2;
+    object-fit: contain;
+}
+
+.promo-details-container {
+    height: 100%;
+    flex: 1;
+    justify-content: start;
+}
+
+.promo-details-container > h2 {
+    flex: 1;
+}
+
+.promo-details-container > p {
+    flex: 1;
+}
+
+.promo-button-container {
+    height: fit-content;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
 }
