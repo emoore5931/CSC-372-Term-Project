@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>CSC-372 Project</title>
+        <title>Boxed Eats - Home</title>
         <link type="image/x-icon" rel="icon" href="./resources/images/logos/boxed-eats-favicon-black.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Styling-->
@@ -36,23 +36,51 @@
                 <!--Todo: https://www.w3schools.com/howto/howto_js_slideshow.asp -->
                 <div class="hero-slideshow-container"></div>
                 <div class="flex-container-col hero-details-container">
-                    <div class="header-lg text-center">Welcome to Boxed Eats!</div>
-                    <div class="text-lg text-center">An easy and healthy solution for meal planning.</div>
+                    <div class="header-lg text-center">Boxed Eats</div>
+                    <div class="text-lg text-center">Meal Planning Redefined</div>
                     <div class="center-horizontal">
-                        <button class="button button-primary button-md hero-details-button" href="."
+                        <button class="button-primary button-md hero-details-button" href="."
                             onclick="window.location.href = './app/products/products.html'">
                             Start Shopping <i class="fa-solid fa-cart-shopping"></i>
                         </button>
                     </div>
                 </div>
             </div>
+            <div id="home-content-container">
+                <div id="featuredPromo" class="promo flex-container-row">
+                    <div class="promo-image-container">
+                        <img src="" alt="Featured Promotional Item Image"/>
+                    </div>
+                    <div class="promo-details-container flex-container-col">
+                        <h2 class="header-lg text-center">Promotional Item</h2>
+                        <p class="promo-details-item-desc">
+                            Promotional item description. Promotional item information will be dynamically filled using database calls.
+                        </p>
+                        <button class="button-secondary button-sm" onclick="window.location.href = '#'">View</button>
+                    </div>
+                </div>
+                <article id="aboutUs" class="flex-container-col">
+                    <h2 class="header-md text-center">What is Boxed Eats?</h2>
+                    <section>
+                        <div class="about-us-section-content-container">
+                            <h3 class="header-sm">Header</h3>
+                            <p>Text</p>
+                        </div>
+                        <img src="" alt="About us section image"/>
+                    </section>
+                </article>
+            </div>
+            <div style="margin: auto; width: 100%;"><a href="#" class="text-center">Back to Top</a></div>
         </main>
         <footer>
-            <div class="flex-container-row footer-container">
+            <div class="footer-container">
                 <div class="flex-container-col text-sm" style="justify-content: end; height: 100%;">
                     Application designed by Ethan Moore, 2024
                 </div>
-                <div class="flex-container-row">
+                <div style="align-self: center;" class="text-center">
+                    <a href="#">Back to Top</a>
+                </div>
+                <div style="justify-content: end;" class="flex-container-row">
                     <!--Github Link-->
                     <a class="no-dec icon-link footer-icon" href="https://github.com/emoore5931/CSC-372-Term-Project"><i class="fa-brands fa-github"></i></a>
                     <!--Email Link-->
