@@ -12,6 +12,8 @@
         <script src="./../../resources/fontawesome/solid.js"></script>
         <script src="./../../resources/fontawesome/brands.js"></script>
         <script src="./../../resources/fontawesome/regular.js"></script>
+        <!--Scripts-->
+        <script defer src="./products.js"></script>
     </head>
     <body>
         <header>
@@ -40,12 +42,14 @@
             <div id="productsContainer" class="flex-container-col">
               <section>
                 <h3 class="text-center">Featured Deals</h3>
+                <!--Featured deal cards container-->
                 <div class="flex-container-row" id="featuredDeals">
                     <div class="product-card product-card-lg">
-                        <img src="" alt="Product Image"/>
+                        <img src="./../../resources/images/stock-photos/temp_promo.jpg" alt="Product Image"/>
                         <h4>Product Name</h4>
+                        <p class="text-sm text-right"><ins>$XX.XX</ins> <del>$XX.XX</del></p>
                         <div class="flex-container-row">
-                            <button class="icon-button"><i class="fa-regular fa-eye"></i></button>
+                            <button class="icon-button" onclick="displayProductModal(-1)"><i class="fa-regular fa-eye"></i></button>
                             <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
                         </div>
                     </div>
@@ -53,17 +57,40 @@
               </section>
               <section>
                 <h3 class="text-center">All Kits</h3>
+                <!--All product cards container-->
                 <div class="flex-container-row" id="allKits">
                     <div class="product-card product-card-md">
-                        <img src="" alt="Product Image"/>
+                        <img src="./../../resources/images/stock-photos/temp_promo.jpg" alt="Product Image"/>
                         <h4>Product Name</h4>
+                        <p class="text-sm text-right"><ins>$XX.XX</ins> <del>$XX.XX</del></p>
                         <div class="flex-container-row">
-                            <button class="icon-button"><i class="fa-regular fa-eye"></i></button>
+                            <button class="icon-button" onclick="displayProductModal(-1)"><i class="fa-regular fa-eye"></i></button>
                             <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
                         </div>
                     </div>
                 </div>
               </section>
+            </div>
+
+            <!--Product Modal-->
+            <!--Stays hidden until view product is selected on the product card, data will be dynamically
+             filled by script-->
+            <div id="productModalContainer" class="flex-container-col">
+                <div id="productModal">
+                    <button id="productModalDismiss" class="icon-button" onclick="dismissProductModal()"><i class="fa-solid fa-circle-xmark"></i></button>
+                    <div class="flex-container-row">
+                        <img id="productImage" alt="Product Image"/>
+                        <div class="flex-container-col">
+                            <h2 id="productName" class="text-center"></h2>
+                            <p id="productDesc"></p>
+                            <p id="productPrice" class="text-center text-lg"></p>
+                            <div id="productModalButtonContainer" class="flex-container-row">
+                                <button class="button-primary">Add to Wishlist</button>
+                                <button class="button-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
