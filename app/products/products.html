@@ -42,8 +42,14 @@
             <div id="productsContainer" class="flex-container-col">
               <section>
                 <h3 class="text-center">Featured Deals</h3>
+                <!--Paging buttons-->
+                <div class="flex-container-row paging-buttons">
+                    <button id="featuredDealsPrevious" class="icon-button" onclick=""><i class="fa-solid fa-square-caret-left"></i></button>
+                    <button id="featuredDealsNext" class="icon-button" onclick=""><i class="fa-solid fa-square-caret-right"></i></button>
+                </div>
                 <!--Featured deal cards container-->
                 <div class="flex-container-row" id="featuredDeals">
+                    <!--Product cards-->
                     <div class="product-card product-card-lg">
                         <img src="./../../resources/images/stock-photos/temp_promo.jpg" alt="Product Image"/>
                         <h4>Product Name</h4>
@@ -57,6 +63,11 @@
               </section>
               <section>
                 <h3 class="text-center">All Kits</h3>
+                <!--Paging buttons-->
+                <div class="flex-container-row paging-buttons">
+                    <button id="allKitsPrevious" class="icon-button" onclick=""><i class="fa-solid fa-square-caret-left"></i></button>
+                    <button id="allKitsNext" class="icon-button" onclick=""><i class="fa-solid fa-square-caret-right"></i></button>
+                </div>
                 <!--All product cards container-->
                 <div class="flex-container-row" id="allKits">
                     <div class="product-card product-card-md">

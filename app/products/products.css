@@ -68,6 +68,19 @@ main {
     box-shadow: 8px 6px darkgray;
 }
 
+.paging-buttons {
+    width: 90%;
+    height: 40px;
+    margin: auto;
+    justify-content: end;
+    gap: 5px;
+}
+
+.paging-buttons > button > svg {
+    height: 25px;
+    width: auto;
+}
+
 .product-card {
     padding: 4px;
     display: flex;
