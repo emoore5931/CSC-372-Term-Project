@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!--
+  Name: Ethan Moore
+  Date: 09.15.2024
+  CSC 372-01
+
+  This page is the login page users will be greeted with if it is detected that they are not logged in.
+  This page will only display if they attempt to interact with an app function that requires an account 
+  (i.e. adding an item to cart).
+-->
+
 <html lang="en">
     <head>
         <title>Boxed Eats - Login</title>
@@ -13,6 +23,8 @@
         <script defer src="./../../resources/fontawesome/brands.js"></script>
         <!--Scripts-->
         <script defer src="./login.js"></script>
+        <!--Default Script-->
+        <script defer src="./../app.js"></script>
     </head>
     <body>
         <header>
@@ -25,7 +37,19 @@
                     <button class="banner-button" onclick="window.location.href = './../../index.html'"><i class="fa-solid fa-house"></i></button>
                     <button class="banner-button" onclick="window.location.href = './../products/products.html'"><i class="fa-solid fa-cart-shopping"></i></button>
                     <button class="banner-button" onclick="window.location.href = './login.html'"><i class="fa-solid fa-user"></i></button>
-                    <button class="banner-button"><i class="fa-solid fa-envelope"></i></button>
+                    <button id="extendNavButton" class="banner-button" onclick="sideNavControl()">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+            <!--Secondary Navbar-->
+            <nav id="navSide">
+                <button id="dismissNavSide" onclick="sideNavControl()" class="icon-button">
+                    <i class="fa-solid fa-angles-right"></i>
+                </button>
+                <div id="navSideButtonContainer" class="flex-container-col">
+                    <button class="banner-button">Shopping Cart</button>
+                    <button class="banner-button" disabled>Sign Out</button>
                 </div>
             </nav>
         </header>
@@ -62,7 +86,10 @@
         <footer>
             <div class="footer-container">
                 <div class="flex-container-col text-sm" style="justify-content: end; height: 100%;">
-                    Application designed by Ethan Moore, 2024
+                    <pre>
+Copyright Boxed Eats Inc. 2024.
+Application designed by Ethan Moore, 2024.
+                    </pre>
                 </div>
                 <div style="align-self: center;" class="text-center">
                     <a href="#">Back to Top</a>
