@@ -217,6 +217,43 @@ nav {
     transform: scale(1.5, 1.5);
 }
 
+/*Side Nav*/
+#navSide {
+    display: none; /*handled in app.js*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20vw;
+    height: 100vh;
+    padding: 8px 0;
+    overflow: visible;
+    border-left: 1px solid var(--secondary-color);
+    z-index: 11;
+}
+
+#navSideButtonContainer {
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    gap: 4px;
+    overflow: hidden;
+}
+
+#navSideButtonContainer > button.banner-button {
+    width: 100%;
+}
+
+#dismissNavSide {
+    position: absolute;
+    top: 0;
+    left: -25px;
+}
+
+#dismissNavSide > svg {
+    height: auto;
+    width: 20px;
+}
+
 /*Page Sections*/
 main {
     position: relative;
@@ -262,12 +299,27 @@ button {
     max-height: 100px;
     border-radius: 2px;
     border-style: solid;
+    transition: transform 0.15s;
 }
 
 button:hover {
     cursor: pointer;
     transform: scale(1.15);
 }
+
+button[disabled] {
+    background-color: var(--primary-color-dark);
+    color: var(--quatrenary-color-dark);
+}
+
+button[disabled]:hover {
+    background-color: var(--primary-color-dark);
+    color: var(--quatrenary-color-dark);
+    cursor: default;
+    transform: none;
+}
+
+button
 
 .button-max {
     width: 400px;
