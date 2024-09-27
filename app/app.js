@@ -1,12 +1,11 @@
 var navSideRef = document.getElementById("navSide");
+var extendNavRef = document.getElementById("extendNavButton");
+var dismissNavRef = document.getElementById("dismissNavSide");
 var navSideIsExtended = false;
 
+extendNavRef.addEventListener("click", sideNavControl);
+dismissNavRef.addEventListener("click", sideNavControl);
+
 function sideNavControl() {
-    if (navSideIsExtended) {
-        navSideRef.style.display = "none";
-        navSideIsExtended = false;
-    } else {
-        navSideRef.style.display = "block";
-        navSideIsExtended = true;
-    }
+    navSideRef.classList.toggle("extend");
 }

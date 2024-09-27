@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <!--
   Name: Ethan Moore
-  Date: 09.15.2024
+  Date: 09.27.2024
   CSC 372-01
 
-  This page is the login page users will be greeted with if it is detected that they are not logged in.
-  This page will only display if they attempt to interact with an app function that requires an account 
-  (i.e. adding an item to cart).
+  This page will contain further detailed information about a selected product.
 -->
 
 <html lang="en">
     <head>
-        <title>Boxed Eats - Login</title>
+        <title>Boxed Eats - Product X</title>
         <link type="image/x-icon" rel="icon" href="./../../resources/images/logos/boxed-eats-favicon-black.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Styling-->
         <link rel="stylesheet" href="./../../default-style.css"/>
-        <link rel="stylesheet" href="./login.css"/>
+        <link rel="stylesheet" href="./products.css"/>
         <!--Font Awesome-->
-        <script defer src="./../../resources/fontawesome/fontawesome.js"></script>
-        <script defer src="./../../resources/fontawesome/solid.js"></script>
-        <script defer src="./../../resources/fontawesome/brands.js"></script>
-        <!--Scripts-->
-        <script defer src="./login.js"></script>
+        <script src="./../../resources/fontawesome/fontawesome.js"></script>
+        <script src="./../../resources/fontawesome/solid.js"></script>
+        <script src="./../../resources/fontawesome/brands.js"></script>
+        <script src="./../../resources/fontawesome/regular.js"></script>
         <!--Default Script-->
         <script defer src="./../app.js"></script>
+        <!--Script-->
+        <script defer src="./product-details.js"></script>
     </head>
     <body>
         <header>
@@ -36,7 +35,7 @@
                 <div class="banner-button-container">
                     <button class="banner-button" onclick="window.location.href = './../../index.html'"><i class="fa-solid fa-house"></i></button>
                     <button class="banner-button" onclick="window.location.href = './../products/products.html'"><i class="fa-solid fa-cart-shopping"></i></button>
-                    <button class="banner-button" onclick="window.location.href = './login.html'"><i class="fa-solid fa-user"></i></button>
+                    <button class="banner-button" onclick="window.location.href = './../account-login/login.html'"><i class="fa-solid fa-user"></i></button>
                     <button id="extendNavButton" class="banner-button">
                         <i class="fa-solid fa-bars"></i>
                     </button>
@@ -53,36 +52,31 @@
                 </div>
             </nav>
         </header>
-        <main class="flex-container-row" style="justify-content: center;">
-            <div class="account-entry-container">
-                <div id="entryCover" class="entry-cover flex-container-col">
-                    <h2 id="coverHeader" class="header-lg text-center">New to Boxed Eats?</h2>
-                    <div class="flex-container-row" style="justify-content: center;">
-                        <button id="coverButton" class="button-secondary" onclick="EntryCover.stateSwitch()">Signup Here</button>
-                    </div>
+
+        <main>
+            <h2 class="text-center header-lg">Product X</h2>
+            <div id="productImageGallery" class="flex-container-row">
+                <div id="selectedImgDisplayContainer">
+                    <button id="previousImage" class="icon-button"><i class="fa-solid fa-angle-left"></i></button>
+                    <button id="nextImage" class="icon-button"><i class="fa-solid fa-angle-right"></i></button>
+                    <img id="selectedImgDisplay" alt="Selected product image"/>
                 </div>
-                <div class="flex-container-row account-entry-forms-container">
-                    <div class="login-container">
-                        <form id="login" class="flex-container-col">
-                            <h2 class="header-md text-center">Login</h2>
-                            <input class="text-input" id="username" type="text" required placeholder="Username"/>
-                            <input class="text-input" id="password" type="password" placeholder="Password" required />
-                            <input id="submit" class="button-sm button-primary" type="submit" value="Submit"/>
-                        </form>
-                    </div>
-                    <div class="signup-container">
-                        <form id="signup" class="flex-container-col">
-                            <h2 class="header-md text-center">Signup</h2>
-                            <input class="text-input" id="newFirstName" type="text" placeholder="First Name" required/>
-                            <input class="text-input" id="newLastName" type="text" placeholder="Last Name" required/>
-                            <input class="text-input" id="newUsername" type="text" placeholder="Username" required/>
-                            <input class="text-input" id="newPassword" type="password" placeholder="Password" required/>
-                            <input id="newAccountSubmit" class="button-sm button-primary" type="submit" value="Submit"/>
-                        </form>
-                    </div>
+                <div id="imgGallery">
+                    <img class="gallery-image" src="" alt="Product Image"/>
+                    <img class="gallery-image" src="" alt="Product Image"/>
+                    <img class="gallery-image" src="" alt="Product Image"/>
                 </div>
             </div>
+            <p id="productPrice" class="text-center text-lg">$00.00</p>
+            <div id="productButtonContainer">
+                <button id="addToCart" class="icon-button"><i class="fa-solid fa-cart-plus"></i></button>
+                <button id="addToWishlist" class="icon-button"><i class="fa-solid fa-clipboard-list"></i></button>
+            </div>
+            <article id="productInfo">
+                <section></section>
+            </article>
         </main>
+
         <footer>
             <div class="footer-container">
                 <div class="flex-container-col text-sm" style="justify-content: end; height: 100%;">

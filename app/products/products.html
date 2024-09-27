@@ -37,14 +37,14 @@
                     <button class="banner-button" onclick="window.location.href = './../../index.html'"><i class="fa-solid fa-house"></i></button>
                     <button class="banner-button" onclick="window.location.href = './products.html'"><i class="fa-solid fa-cart-shopping"></i></button>
                     <button class="banner-button" onclick="window.location.href = './../account-login/login.html'"><i class="fa-solid fa-user"></i></button>
-                    <button id="extendNavButton" class="banner-button" onclick="sideNavControl()">
+                    <button id="extendNavButton" class="banner-button">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
             </nav>
             <!--Secondary Navbar-->
             <nav id="navSide">
-                <button id="dismissNavSide" onclick="sideNavControl()" class="icon-button">
+                <button id="dismissNavSide" class="icon-button">
                     <i class="fa-solid fa-angles-right"></i>
                 </button>
                 <div id="navSideButtonContainer" class="flex-container-col">
@@ -119,6 +119,7 @@
                             <p id="productDesc"></p>
                             <p id="productPrice" class="text-center text-lg"></p>
                             <div id="productModalButtonContainer" class="flex-container-row">
+                                <button id="moreInfo" class="button-primary">More Info</button>
                                 <button class="button-primary">Add to Wishlist</button>
                                 <button class="button-primary">Add to Cart</button>
                             </div>
@@ -126,7 +127,9 @@
                     </div>
                 </div>
             </div>
+
         </main>
+
         <footer>
             <div class="footer-container">
                 <div class="flex-container-col text-sm" style="justify-content: end; height: 100%;">

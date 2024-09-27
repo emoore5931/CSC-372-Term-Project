@@ -59,8 +59,8 @@ name(s) within the app directory. (EX: index.css)
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 99vw;
+    min-height: 100vh;
     padding: 0;
     margin: 0;
     background-color: var(--primary-color-dark);
@@ -219,16 +219,25 @@ nav {
 
 /*Side Nav*/
 #navSide {
-    display: none; /*handled in app.js*/
+    --nav-side-width: 20vw;
+    --nav-side-right-pos: calc(-20vw - 40px);
+
+    display: block; /*handled in app.js*/
     position: fixed;
     top: 0;
-    right: 0;
-    width: 20vw;
+    right: var(--nav-side-right-pos);
+    width: var(--nav-side-width);
     height: 100vh;
     padding: 8px 0;
     overflow: visible;
     border-left: 1px solid var(--secondary-color);
     z-index: 11;
+    transition: all 350ms;
+}
+
+#navSide.extend {
+    display: block;
+    right: 0;
 }
 
 #navSideButtonContainer {
@@ -245,13 +254,13 @@ nav {
 
 #dismissNavSide {
     position: absolute;
-    top: 0;
-    left: -25px;
+    top: 2px;
+    left: -37px;
 }
 
 #dismissNavSide > svg {
     height: auto;
-    width: 20px;
+    width: 29px;
 }
 
 /*Page Sections*/

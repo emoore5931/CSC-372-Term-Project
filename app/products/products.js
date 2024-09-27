@@ -4,18 +4,23 @@ var productImageRef = document.getElementById("productImage");
 var productNameRef = document.getElementById("productName");
 var productDescRef = document.getElementById("productDesc");
 var productPriceRef = document.getElementById("productPrice");
+var moreInfoBttnRef = document.getElementById("moreInfo");
+
+moreInfoBttnRef.addEventListener("click", () => {window.location.href = "./../product-details/product-details.html"});
 
 function displayProductModal(productId) {
     
     insertModalData(productId);
 
-    modalContainerRef.style.display = "flex";
+    modalContainerRef.classList.add("display");
+    modalRef.classList.add("display");
 
     disableScroll();
 }
 
 function dismissProductModal() {
-    modalContainerRef.style.display = "none";
+    modalContainerRef.classList.remove("display");
+    modalRef.classList.remove("display");
     enableScroll();
 }
 

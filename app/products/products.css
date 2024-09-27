@@ -131,7 +131,7 @@ main {
 
 /*Modal Styling*/
 #productModalContainer {
-    display: none; /*Script handling*/
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -142,6 +142,12 @@ main {
     overflow: hidden;
     justify-content: center;
     align-content: center;
+    transition: none;
+    transform: scale(0);
+}
+
+#productModalContainer.display {
+    transform: scale(1);
 }
 
 #productModal {
@@ -154,6 +160,12 @@ main {
     z-index: 12;
     overflow: hidden;
     padding: 15px;
+    transition: all 350ms;
+    transform: scale(0);
+}
+
+#productModal.display {
+    transform: scale(1);
 }
 
 #productModal > div {
