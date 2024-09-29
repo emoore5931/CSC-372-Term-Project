@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Styling-->
         <link rel="stylesheet" href="./../../default-style.css"/>
-        <link rel="stylesheet" href="./products.css"/>
+        <link rel="stylesheet" href="./product-details.css"/>
         <!--Font Awesome-->
         <script src="./../../resources/fontawesome/fontawesome.js"></script>
         <script src="./../../resources/fontawesome/solid.js"></script>
@@ -53,15 +53,15 @@
             </nav>
         </header>
 
-        <main>
+        <main class="flex-container-col">
             <h2 class="text-center header-lg">Product X</h2>
             <div id="productImageGallery" class="flex-container-row">
                 <div id="selectedImgDisplayContainer">
                     <button id="previousImage" class="icon-button"><i class="fa-solid fa-angle-left"></i></button>
                     <button id="nextImage" class="icon-button"><i class="fa-solid fa-angle-right"></i></button>
-                    <img id="selectedImgDisplay" alt="Selected product image"/>
+                    <img id="selectedImgDisplay" alt="Selected product image" src="./../../resources/images/stock-photos/temp_promo.jpg"/>
                 </div>
-                <div id="imgGallery">
+                <div id="imgGallery" class="flex-container-col">
                     <img class="gallery-image" src="" alt="Product Image"/>
                     <img class="gallery-image" src="" alt="Product Image"/>
                     <img class="gallery-image" src="" alt="Product Image"/>
@@ -73,7 +73,18 @@
                 <button id="addToWishlist" class="icon-button"><i class="fa-solid fa-clipboard-list"></i></button>
             </div>
             <article id="productInfo">
-                <section></section>
+                <section id="productDescription">
+                    Product description goes here.
+                </section>
+                <section id="productSpecifications">
+                    <figure>Product details here</figure>
+                </section>
+                <section id="productAllergenWarnings">
+                    <h3>Product Allergens</h3>
+                    <ul>
+                        <li>Peanut allergen warning</li>
+                    </ul>
+                </section>
             </article>
         </main>
 

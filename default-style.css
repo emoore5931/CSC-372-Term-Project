@@ -4,7 +4,7 @@ This stylesheet defines global styling rules and style variables to be used thro
 */
 
 /*
-Styling rules specific to a page will be found in the stylesheet labled with the related pages 
+Styling rules specific to a page will be found in the stylesheet labeled with the related pages 
 name(s) within the app directory. (EX: index.css)
 */
 
@@ -15,7 +15,7 @@ name(s) within the app directory. (EX: index.css)
 :root {
     /*Note: if changing any color values be sure to change "color" and "color-vals" accordingly*/
 
-    /*Color Pallete*/
+    /*Color Palette*/
     --primary-color: rgb(202, 215, 231);
     --primary-color-light: rgb(197, 212, 231);
     --primary-color-dark: rgb(184, 205, 231);
@@ -28,9 +28,9 @@ name(s) within the app directory. (EX: index.css)
     --tertiary-color-light: rgb(148, 140, 86);
     --tertiary-color-dark: rgb(156, 136, 6);
 
-    --quatrenary-color: rgb(244, 244, 244);
-    --quatrenary-color-light: rgb(255, 255, 255);
-    --quatrenary-color-dark: rgb(227, 227, 227);
+    --quaternary-color: rgb(244, 244, 244);
+    --quaternary-color-light: rgb(255, 255, 255);
+    --quaternary-color-dark: rgb(227, 227, 227);
 
     /*Raw Color Values*/
     --primary-color-vals: 202, 215, 231;
@@ -44,6 +44,10 @@ name(s) within the app directory. (EX: index.css)
     --tertiary-color-vals: 157, 141, 38;
     --tertiary-color-light-vals:  148, 140, 86;
     --tertiary-color-dark-vals: 156, 136, 6;
+
+    --quaternary-color-val: 244, 244, 244;
+    --quaternary-color-light-vals: 255, 255, 255;
+    --quaternary-color-dark-vals: 227, 227, 227;
 
     /*Text Sizes*/
     --text-size-header-lg: 32px;
@@ -318,12 +322,12 @@ button:hover {
 
 button[disabled] {
     background-color: var(--primary-color-dark);
-    color: var(--quatrenary-color-dark);
+    color: var(--quaternary-color-dark);
 }
 
 button[disabled]:hover {
     background-color: var(--primary-color-dark);
-    color: var(--quatrenary-color-dark);
+    color: var(--quaternary-color-dark);
     cursor: default;
     transform: none;
 }

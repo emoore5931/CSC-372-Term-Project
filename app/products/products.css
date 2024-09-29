@@ -45,7 +45,7 @@ main {
     justify-content: start;
     overflow-x: scroll;
     overflow-y: hidden;
-    background-color: var(--quatrenary-color);
+    background-color: var(--quaternary-color);
     border-color: var(--tertiary-color-dark);
     border-radius: 4px;
     gap: 40px;
@@ -61,7 +61,7 @@ main {
     justify-content: start;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: var(--quatrenary-color);
+    background-color: var(--quaternary-color);
     border-color: var(--tertiary-color-dark);
     border-radius: 4px;
     gap: 20px;
@@ -97,7 +97,7 @@ main {
     height: auto;
     object-fit: fill;
     overflow: hidden;
-    background-color: var(--quatrenary-color-dark);
+    background-color: var(--quaternary-color-dark);
     padding: 2px;
     border-radius: 1px;
 }
@@ -155,7 +155,7 @@ main {
     width: 75vw;
     height: 85vh;
     margin: auto;
-    background-color: var(--quatrenary-color-light);
+    background-color: var(--quaternary-color-light);
     border-radius: 12px;
     z-index: 12;
     overflow: hidden;
@@ -185,7 +185,7 @@ main {
     object-fit: cover;
     height: 100%;
     flex: 1;
-    background-color: var(--quatrenary-color-dark);
+    background-color: var(--quaternary-color-dark);
     border: 4px solid var(--tertiary-color-dark);
 }
 
