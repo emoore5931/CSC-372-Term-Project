@@ -36,6 +36,17 @@ main {
     outline: none;
 }
 
+#cartIconBttn {
+    position: absolute;
+    top: 60px;
+    right: 40px;
+}
+
+#cartIconBttn > svg {
+    height: auto;
+    width: 35px;
+}
+
 #featuredDeals {
     width: 90%;
     height: auto;

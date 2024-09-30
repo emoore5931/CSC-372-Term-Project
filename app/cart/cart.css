@@ -1,0 +1,39 @@
+main {
+    width: 90%;
+    margin: 20px auto 60px auto;
+    padding: 20px;
+    background-color: var(--quaternary-color);
+    border: 5px solid var(--tertiary-color-dark);
+}
+
+aside {
+    flex: 1;
+}
+
+#productList {
+    justify-content: start;
+    gap: 10px;
+}
+
+.product-list-item {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: auto;
+    margin: auto;
+    gap: 4px;
+    justify-content: space-evenly;
+    align-items: center;
+    border-top: 1px solid var(--quaternary-color-dark);
+    border-bottom: 1px solid var(--quaternary-color-dark);
+}
+
+.product-list-item > img {
+    width: 150px;
+    height: 150px;
+}
+
+.product-list-item > input {
+    width: 40px;
+    height: 30px;
+}

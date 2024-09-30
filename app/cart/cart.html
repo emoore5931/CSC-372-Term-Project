@@ -4,17 +4,18 @@
   Date: 09.30.2024
   CSC 372-01
 
-  This page will contain further detailed information about a selected product.
+  This page will contain the user's shopping cart containing products they have added
+  and allowing them to check out their current order.
 -->
 
 <html lang="en">
     <head>
-        <title>Boxed Eats - Product X</title>
+        <title>Boxed Eats - My Cart</title>
         <link type="image/x-icon" rel="icon" href="./../../resources/images/logos/boxed-eats-favicon-black.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Styling-->
         <link rel="stylesheet" href="./../../default-style.css"/>
-        <link rel="stylesheet" href="./product-details.css"/>
+        <link rel="stylesheet" href="./cart.css"/>
         <!--Font Awesome-->
         <script src="./../../resources/fontawesome/fontawesome.js"></script>
         <script src="./../../resources/fontawesome/solid.js"></script>
@@ -22,8 +23,6 @@
         <script src="./../../resources/fontawesome/regular.js"></script>
         <!--Default Script-->
         <script defer src="./../app.js"></script>
-        <!--Script-->
-        <script defer src="./product-details.js"></script>
     </head>
     <body>
         <header>
@@ -53,39 +52,33 @@
             </nav>
         </header>
 
-        <main class="flex-container-col">
-            <h2 class="text-center header-lg">Product X</h2>
-            <div id="productImageGallery" class="flex-container-row">
-                <div id="selectedImgDisplayContainer">
-                    <button id="previousImage" class="icon-button"><i class="fa-solid fa-angle-left"></i></button>
-                    <button id="nextImage" class="icon-button"><i class="fa-solid fa-angle-right"></i></button>
-                    <img id="selectedImgDisplay" alt="Selected product image" src="./../../resources/images/stock-photos/temp_promo.jpg"/>
+        <main class="flex-container-row">
+            <aside id="productListContainer">
+                <h2 class="text-center header-lg">My Cart</h2>
+                <div id="productList" class="flex-container-col">
+                    <div class="product-list-item" id="product1">
+                        <img src="" alt="Product Image"/>
+                        <p>Product 1</p>
+                        <input type="number" min="1">
+                        <div>
+                            <button class="icon-button" id="changeQuantity"><i class="fa-solid fa-circle-check"></i></button>
+                            <button class="icon-button" id="removeItem"><i class="fa-solid fa-circle-xmark"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-list-item" id="product2">
+                        <img src="" alt="Product Image"/>
+                        <p>Product 2</p>
+                        <input type="number" min="1">
+                        <div>
+                            <button class="icon-button" id="changeQuantity"><i class="fa-solid fa-circle-check"></i></button>
+                            <button class="icon-button" id="removeItem"><i class="fa-solid fa-circle-xmark"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div id="imgGallery" class="flex-container-col">
-                    <img class="gallery-image" src="./../../resources/images/stock-photos/temp_promo.jpg" alt="Product Image"/>
-                    <img class="gallery-image" src="./../../resources/images/stock-photos/temp_promo.jpg" alt="Product Image"/>
-                    <img class="gallery-image" src="./../../resources/images/stock-photos/temp_promo.jpg" alt="Product Image"/>
-                </div>
-            </div>
-            <p id="productPrice" class="text-center text-lg">$00.00</p>
-            <div id="productButtonContainer" class="flex-container-row">
-                <button id="addToWishlist" class="icon-button"><i class="fa-solid fa-clipboard-list"></i></button>
-                <button id="addToCart" class="icon-button"><i class="fa-solid fa-cart-plus"></i></button>
-            </div>
-            <article id="productInfo">
-                <section id="productDescription">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </section>
-                <section id="productSpecifications">
-                    <figure>Product details here</figure>
-                </section>
-                <section id="productAllergenWarnings">
-                    <h3>Product Allergens</h3>
-                    <ul>
-                        <li>Peanut allergen warning</li>
-                    </ul>
-                </section>
-            </article>
+            </aside>
+            <aside id="orderSummaryContainer">
+                <h2 class="text-center header-lg">Order Summary</h2>
+            </aside>
         </main>
 
         <footer>

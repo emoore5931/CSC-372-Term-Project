@@ -5,8 +5,10 @@ var productNameRef = document.getElementById("productName");
 var productDescRef = document.getElementById("productDesc");
 var productPriceRef = document.getElementById("productPrice");
 var moreInfoBttnRef = document.getElementById("moreInfo");
+var cartIconBttnRef = document.getElementById("cartIconBttn");
 
 moreInfoBttnRef.addEventListener("click", () => {window.location.href = "./../product-details/product-details.html"});
+cartIconBttnRef.addEventListener("click", () => {window.location.href = "./../cart/cart.html"});
 
 function displayProductModal(productId) {
     
