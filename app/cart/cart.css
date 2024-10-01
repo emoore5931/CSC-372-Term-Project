@@ -49,16 +49,40 @@ main {
     height: auto;
 }
 
-#orderSummaryList {
-    gap: 10px
+#orderSummary {
+    padding: 20px;
+    gap: 10px;
+    background-color: var(--quaternary-color-dark);
+    width: auto;
+    min-height: 800px;
 }
 
 .order-summary-product-title {
     margin: 0;
 }
 
-#orderSummaryList > div > div {
+#receiptContainer {
+    background-image: url(./../../resources/images/backgrounds/order-sum-background.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    padding: 10px;
+    min-height: 750px;
+    max-height: 2015px;
+    justify-content: space-between;
+}
+
+#productSums > div > div {
     margin-left: 20px;
     justify-content: space-between;
-    width: 80%
+    width: 95%;
+}
+
+#orderSummaryBttnContainer {
+    margin: 10px auto 0 auto;
+    width: fit-content;
+}
+
+#finalCalculations > div {
+    justify-content: space-between;
 }

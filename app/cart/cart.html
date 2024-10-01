@@ -80,23 +80,50 @@
             </aside>
             <aside id="orderSummaryContainer">
                 <h2 class="text-center header-lg">Order Summary</h2>
-                <div id="orderSummaryList" class="flex-container-col text-md">
-                    <div id="product1Sum">
-                        <p class="order-summary-product-title">Product 1</p><br>
-                        <div class="flex-container-row">
-                            <p><span id="product1Base">$14.00</span> x <span id="product1Quantity">2</span>:</p>
-                            <p id="product1Total">$28.00</p>
+                <div id="orderSummary">
+                    <div id="receiptContainer" class="flex-container-col text-md">
+                        <div id="productSums" class="flex-container-col">
+                            <div id="product1Sum">
+                                <p class="order-summary-product-title">Product 1</p><br>
+                                <div class="flex-container-row">
+                                    <p><span id="product1Base">$14.00</span> x <span id="product1Quantity">2</span>:</p>
+                                    <p id="product1Total">$28.00</p>
+                                </div>
+                            </div>
+                            <div id="product2Sum">
+                                <p class="order-summary-product-title">Product 2</p><br>
+                                <div class="flex-container-row">
+                                    <p><span id="product2Base">$14.00</span> x <span id="product2Quantity">1</span>:</p>
+                                    <p id="product2Total">$14.00</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div id="product2Sum">
-                        <p class="order-summary-product-title">Product 2</p><br>
-                        <div class="flex-container-row">
-                            <p><span id="product2Base">$14.00</span> x <span id="product2Quantity">1</span>:</p>
-                            <p id="product2Total">$14.00</p>
+
+                        <div id="finalCalculations" class="flex-container-col">
+                            <div id="subtotalContainer" class="flex-container-row">
+                                <p>Subtotal:</p>
+                                <p id="subTotal">$42.00</p>
+                            </div>
+
+                            <div class="flex-container-row">
+                                <p>Sales Tax (<span id="salesTax">6.75%</span>):</p>
+                                <p id="salesTaxVal">$2.84</p>
+                            </div>
+                            <div class="flex-container-row">
+                                <p>Delivery Fee:</p>
+                                <p id="deliveryFee">$6.99</p>
+                            </div>
+
+                            <div class="flex-container-row">
+                                <p>Total:</p>
+                                <p id="total">$51.83</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="orderSummaryBttnContainer"></div>
+                <div id="orderSummaryBttnContainer">
+                    <button id="checkout" class="button-primary button-md">Checkout</button>
+                </div>
             </aside>
         </main>
 
