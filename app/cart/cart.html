@@ -57,8 +57,9 @@
                 <h2 class="text-center header-lg">My Cart</h2>
                 <div id="productList" class="flex-container-col">
                     <div class="product-list-item" id="product1">
-                        <img src="" alt="Product Image"/>
+                        <img src="./../../resources/images/stock-photos/temp_promo.jpg" alt="Product Image"/>
                         <p>Product 1</p>
+                        <p>$14.00</p>
                         <input type="number" min="1">
                         <div>
                             <button class="icon-button" id="changeQuantity"><i class="fa-solid fa-circle-check"></i></button>
@@ -66,11 +67,12 @@
                         </div>
                     </div>
                     <div class="product-list-item" id="product2">
-                        <img src="" alt="Product Image"/>
+                        <img src="./../../resources/images/stock-photos/temp_promo.jpg" alt="Product Image"/>
                         <p>Product 2</p>
+                        <p>$14.00</p>
                         <input type="number" min="1">
                         <div>
-                            <button class="icon-button" id="changeQuantity"><i class="fa-solid fa-circle-check"></i></button>
+                            <button class="icon-button" id="approveChange"><i class="fa-solid fa-circle-check"></i></button>
                             <button class="icon-button" id="removeItem"><i class="fa-solid fa-circle-xmark"></i></button>
                         </div>
                     </div>
@@ -78,6 +80,23 @@
             </aside>
             <aside id="orderSummaryContainer">
                 <h2 class="text-center header-lg">Order Summary</h2>
+                <div id="orderSummaryList" class="flex-container-col text-md">
+                    <div id="product1Sum">
+                        <p class="order-summary-product-title">Product 1</p><br>
+                        <div class="flex-container-row">
+                            <p><span id="product1Base">$14.00</span> x <span id="product1Quantity">2</span>:</p>
+                            <p id="product1Total">$28.00</p>
+                        </div>
+                    </div>
+                    <div id="product2Sum">
+                        <p class="order-summary-product-title">Product 2</p><br>
+                        <div class="flex-container-row">
+                            <p><span id="product2Base">$14.00</span> x <span id="product2Quantity">1</span>:</p>
+                            <p id="product2Total">$14.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="orderSummaryBttnContainer"></div>
             </aside>
         </main>
 

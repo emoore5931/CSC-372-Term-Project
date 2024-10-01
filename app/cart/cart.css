@@ -6,7 +6,11 @@ main {
     border: 5px solid var(--tertiary-color-dark);
 }
 
-aside {
+#productListContainer {
+    flex: 1.5;
+}
+
+#orderSummaryContainer {
     flex: 1;
 }
 
@@ -24,6 +28,7 @@ aside {
     gap: 4px;
     justify-content: space-evenly;
     align-items: center;
+    padding: 6px 0;
     border-top: 1px solid var(--quaternary-color-dark);
     border-bottom: 1px solid var(--quaternary-color-dark);
 }
@@ -31,9 +36,29 @@ aside {
 .product-list-item > img {
     width: 150px;
     height: 150px;
+    box-shadow: 3px 3px darkgray;
 }
 
 .product-list-item > input {
     width: 40px;
     height: 30px;
+}
+
+.product-list-item > div > button > svg {
+    width: 20px;
+    height: auto;
+}
+
+#orderSummaryList {
+    gap: 10px
+}
+
+.order-summary-product-title {
+    margin: 0;
+}
+
+#orderSummaryList > div > div {
+    margin-left: 20px;
+    justify-content: space-between;
+    width: 80%
 }
