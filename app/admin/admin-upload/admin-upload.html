@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+  Name: Ethan Moore
+  Date: 10.10.2024
+  CSC 372-01
+
+  This is the bulk upload page for admins that allows them to upload a file containing product information
+  in a JSON format. This data is sent to the backend to be uploaded to the product database.
+-->
+
+<html lang="en">
+    <head>
+        <title>Boxed Eats - Admin View</title>
+        <link type="image/x-icon" rel="icon" href="./../../../resources/images/logos/boxed-eats-favicon-black.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./../admin-style.css"/>
+        <link rel="stylesheet" href="./admin-upload.css"/>
+        <script src="./../../../resources/fontawesome/fontawesome.js"></script>
+        <script src="./../../../resources/fontawesome/solid.js"></script>
+    </head>
+    <body>
+      <header>
+        <img src="./../../../resources/images/logos/logo-white-transparent.png">
+        <h1>Bulk Upload</h1>
+      </header>
+      <nav>
+        <button>Product Listing</button>
+        <button>Bulk Upload</button>
+        <button>Sign Out</button>
+      </nav>
+      <main>
+        <p>Submit a file containing bulk product data. <span id="acceptedFileTypes">(JSON, TXT)</span></p>
+        <label>
+          <input type="file" required accept=".json, .txt">
+          <i class="fa-solid fa-file-import fa-1x"></i>
+          <!--Todo: Need js to display file name once uploaded-->
+        </label>
+        <button>Submit</button>
+      </main>
+    </body>
+</html>
