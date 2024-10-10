@@ -59,11 +59,18 @@ h2 {
     gap: 20px;
     border: 4px solid var(--tertiary-color-dark);
     padding: 1px;
+    overflow: hidden;
 }
 
 .gallery-image {
     width: 100%; 
     flex: 1;
+    transition: all 100ms;
+}
+
+.gallery-image:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 #productPrice {

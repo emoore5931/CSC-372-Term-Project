@@ -1,9 +1,12 @@
 var galleryImageRefs = document.getElementsByClassName("gallery-image");
 var selectedImgDisplayRef = document.getElementById("selectedImgDisplay");
 
-for (let i = 0; i < galleryImageRefs.length; i++) {
-    let currItem = galleryImageRefs.item(i);
-    currItem.id = "galleryImage" + (i + 1);
+document.getElementById("previousImage").addEventListener("click", previousImage);
+document.getElementById("nextImage").addEventListener("click", nextImage);
+
+for (let i = 1; i <= galleryImageRefs.length; i++) {
+    let currItem = galleryImageRefs.item(i - 1);
+    currItem.id = "galleryImage" + i;
     currItem.addEventListener("click", switchImage);
 }
 
@@ -12,5 +15,31 @@ for (let i = 0; i < galleryImageRefs.length; i++) {
  * @param {Event} event 
  */
 function switchImage(event) {
-    selectedImgDisplayRef.setAttribute("src", event.currentTarget.getAttribute("src"));
+    let currentTarget = event.currentTarget;
+    selectedImgDisplayRef.setAttribute("src", currentTarget.getAttribute("src"));
+    selectedImgDisplayRef.setAttribute("current-image-id", currentTarget.getAttribute("id"));
+}
+
+function nextImage() {
+    let currentImageId = selectedImgDisplayRef.getAttribute("current-image-id");
+    let imageIdNum = currentImageId.slice(12);
+    imageIdNum++;
+    if (imageIdNum > galleryImageRefs.length) {
+        imageIdNum = 1;
+    }
+    let newImageId = "galleryImage" + imageIdNum;
+    selectedImgDisplayRef.setAttribute("current-image-id", newImageId);
+    selectedImgDisplayRef.setAttribute("src", document.getElementById(newImageId).getAttribute("src"));
+}
+
+function previousImage() {
+    let currentImageId = selectedImgDisplayRef.getAttribute("current-image-id");
+    let imageIdNum = currentImageId.slice(12);
+    imageIdNum--;
+    if (imageIdNum <= 0) {
+        imageIdNum = galleryImageRefs.length;
+    }
+    let newImageId = "galleryImage" + imageIdNum;
+    selectedImgDisplayRef.setAttribute("current-image-id", newImageId);
+    selectedImgDisplayRef.setAttribute("src", document.getElementById(newImageId).getAttribute("src"));
 }
