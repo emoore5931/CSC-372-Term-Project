@@ -17,6 +17,8 @@
         <link rel="stylesheet" href="./admin-upload.css"/>
         <script src="./../../../resources/fontawesome/fontawesome.js"></script>
         <script src="./../../../resources/fontawesome/solid.js"></script>
+        <script defer src="./../admin-script.js"></script>
+        <script defer src="./admin-upload.js"></script>
     </head>
     <body>
       <header>
@@ -31,10 +33,10 @@
       <main>
         <p>Submit a file containing bulk product data. <span id="acceptedFileTypes">(JSON, TXT)</span></p>
         <label>
-          <input type="file" required accept=".json, .txt">
+          <input id="fileInput" type="file" required accept=".json, .txt">
           <i class="fa-solid fa-file-import fa-1x"></i>
-          <!--Todo: Need js to display file name once uploaded-->
         </label>
+        <p id="fileName">File Not Selected</p>
         <button>Submit</button>
       </main>
     </body>

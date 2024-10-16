@@ -1,0 +1,31 @@
+main {
+    border: 2px solid whitesmoke;
+    padding: 20px;
+    margin: 30px 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+#submitChanges {
+    margin-top: 10px;
+}
+
+/*
+Remove number input arrows on: 
+Chrome, Safari, Edge, Opera 
+*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 
+Remove number input arrows on:
+Firefox
+*/
+input[type=number] {
+  -moz-appearance: textfield;
+}

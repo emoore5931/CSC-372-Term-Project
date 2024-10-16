@@ -4,7 +4,8 @@
   Date: 10.10.2024
   CSC 372-01
 
-  
+  This page allows for the admin to edit the data for the selected product.
+  This code will be used as a template where the product data will be loaded from the database.
 -->
 
 <html lang="en">
@@ -13,13 +14,15 @@
         <link type="image/x-icon" rel="icon" href="./../../../resources/images/logos/boxed-eats-favicon-black.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./../admin-style.css"/>
+        <link rel="stylesheet" href="./product-edit.css"/>
         <script src="./../../../resources/fontawesome/fontawesome.js"></script>
         <script src="./../../../resources/fontawesome/solid.js"></script>
+        <script defer src="./../admin-script.js"></script>
     </head>
     <body>
       <header>
         <img src="./../../../resources/images/logos/logo-white-transparent.png">
-        <h1>Product Listing</h1>
+        <h1>Edit Product</h1>
       </header>
       <nav>
         <button>Product Listing</button>
@@ -27,7 +30,25 @@
         <button>Sign Out</button>
       </nav>
       <main>
-        <!--Todo-->
+        <h2 id="productNameTitle">Example Product</h2>
+        <p>Edit Data:</p>
+        <div id="editFieldsContainer">
+          <label for="productNameEdit">Name:</label>
+          <input id="productNameEdit" type="text" placeholder="Example Product"/> 
+          <br>
+          <label for="groupID">Group ID:</label>
+          <input id="groupID" type="number" placeholder="0"/>
+          <br>
+          <label for="imagePath">Image Path:</label>
+          <input id="imagePath" type="text" placeholder="./example"/>
+          <br>
+          <label for="description">Description:</label>
+          <input id="description" type="text" placeholder="Example description."/>
+          <br>
+          <label for="cost">Cost:</label>
+          <input id="cost" type="text" placeholder="$0.00"/>
+        </div>
+        <button id="submitChanges">Submit Changes</button>
       </main>
     </body>
 </html>
