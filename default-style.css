@@ -16,38 +16,17 @@ name(s) within the app directory. (EX: index.css)
     /*Note: if changing any color values be sure to change "color" and "color-vals" accordingly*/
 
     /*Color Palette*/
-    --primary-color: rgb(202, 215, 231);
-    --primary-color-light: rgb(197, 212, 231);
-    --primary-color-dark: rgb(184, 205, 231);
+    --background-color: white;
+    --primary-color: rgb(38, 70, 83);
+    --secondary-color: rgb(42, 157, 143);
+    --tertiary-color: rgb(233, 196, 106);
+    --quaternary-color: rgb(244, 162, 97);
     
-    --secondary-color: rgb(205, 114, 52);
-    --secondary-color-light: rgb(207, 142, 99);
-    --secondary-color-dark: rgb(208, 91, 13);
-
-    --tertiary-color: rgb(157, 141, 38);
-    --tertiary-color-light: rgb(148, 140, 86);
-    --tertiary-color-dark: rgb(156, 136, 6);
-
-    --quaternary-color: rgb(244, 244, 244);
-    --quaternary-color-light: rgb(255, 255, 255);
-    --quaternary-color-dark: rgb(227, 227, 227);
-
     /*Raw Color Values*/
-    --primary-color-vals: 202, 215, 231;
-    --primary-color-light-vals: 197, 212, 231;
-    --primary-color-dark-vals: 184, 205, 231;
-
-    --secondary-color-vals: 205, 114, 52;
-    --secondary-color-light-vals: 207, 142, 99;
-    --secondary-color-dark-vals: 208, 91, 13;
-
-    --tertiary-color-vals: 157, 141, 38;
-    --tertiary-color-light-vals:  148, 140, 86;
-    --tertiary-color-dark-vals: 156, 136, 6;
-
-    --quaternary-color-val: 244, 244, 244;
-    --quaternary-color-light-vals: 255, 255, 255;
-    --quaternary-color-dark-vals: 227, 227, 227;
+    --primary-color-vals: 38, 70, 83;
+    --secondary-color-vals: 42, 157, 143;
+    --tertiary-color-vals: 233, 196, 106;
+    --quaternary-color-val: 244, 162, 97;
 
     /*Text Sizes*/
     --text-size-header-lg: 32px;
@@ -63,11 +42,11 @@ name(s) within the app directory. (EX: index.css)
 }
 
 body {
-    width: 99vw;
+    width: 100vw;
     min-height: 100vh;
     padding: 0;
     margin: 0;
-    background-color: var(--primary-color-dark);
+    background-color: var(--background-color);
 }
 
 hr {
