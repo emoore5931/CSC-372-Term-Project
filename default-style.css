@@ -17,6 +17,8 @@ name(s) within the app directory. (EX: index.css)
 
     /*Color Palette*/
     --background-color: white;
+    --background-color-secondary: rgb(244, 240, 240);
+
     --primary-color: rgb(38, 70, 83);
     --secondary-color: rgb(42, 157, 143);
     --tertiary-color: rgb(233, 196, 106);
@@ -50,7 +52,7 @@ body {
 }
 
 hr {
-    border-top: 1px solid var(--secondary-color-dark);
+    border-top: 1px solid var(--secondary-color);
 }
 
 /*Text Styling*/
@@ -113,7 +115,7 @@ a:visited {
 
 a:hover {
     text-decoration: none;
-    color: white;
+    color: var(--primary-color);
 }
 
 /*Containers*/
@@ -233,24 +235,29 @@ nav {
 
 #navSideButtonContainer > button.banner-button {
     width: 100%;
+    border-bottom: 1px solid var(--secondary-color);
+    transition: 200ms;
 }
 
 #dismissNavSide {
     position: absolute;
-    top: 2px;
-    left: -37px;
+    top: 40px;
+    left: -24px;
+    height: 100vh;
+    background-color: var(--secondary-color);
 }
 
 #dismissNavSide > svg {
     height: auto;
-    width: 29px;
+    width: 16px;
+    color: var(--primary-color)
 }
 
 /*Page Sections*/
 main {
     position: relative;
     top: var(--banner-height);
-    background-color: var(--primary-color-light);
+    background-color: var(--background-color);
     color: var(--secondary-color);
     min-height: calc(100vh - (var(--banner-height) + var(--footer-height)));
     overflow-y: auto;
@@ -259,9 +266,9 @@ main {
 footer {
     height: var(--footer-height);
     width: 100%;
-    border-top: 1px solid var(--secondary-color-dark);
-    background-color: var(--primary-color-dark);
-    color: var(--secondary-color-dark);
+    border-top: 1px solid var(--secondary-color);
+    background-color: var(--background-color);
+    color: var(--secondary-color);
     position: relative;
     bottom: 0;
     z-index: 10;
@@ -300,18 +307,16 @@ button:hover {
 }
 
 button[disabled] {
-    background-color: var(--primary-color-dark);
-    color: var(--quaternary-color-dark);
+    background-color: var(--primary-color);
+    color: var(--quaternary-color);
 }
 
 button[disabled]:hover {
-    background-color: var(--primary-color-dark);
-    color: var(--quaternary-color-dark);
+    background-color: var(--primary-color);
+    color: var(--quaternary-color);
     cursor: default;
     transform: none;
 }
-
-button
 
 .button-max {
     width: 400px;
@@ -349,15 +354,15 @@ button
 }
 
 .button-primary {
-    background-color: var(--primary-color);
-    color: var(--tertiary-color);
-    border-color: var(--tertiary-color);
+    background-color: transparent;
+    color: var(--quaternary-color);
+    border-color: var(--quaternary-color);
 }
 
 .button-primary:hover {
-    background-color: var(--primary-color-dark);
-    color: var(--tertiary-color-dark);
-    border-color: var(--tertiary-color-dark);
+    background-color: var(--primary-color);
+    color: var(--quaternary-color);
+    border-color: var(--quaternary-color);
 }
 
 .button-secondary {
@@ -367,9 +372,9 @@ button
 }
 
 .button-secondary:hover {
-    background-color: var(--secondary-color-dark);
-    color: var(--primary-color-dark);
-    border-color: var(--primary-color-dark);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 /*Links*/
@@ -400,6 +405,6 @@ a.icon-link > svg {
 button.icon-button {
     border: none;
     background-color: transparent;
-    color: var(--tertiary-color-dark);
+    color: var(--quaternary-color);
     min-width: 10px !important;
 }

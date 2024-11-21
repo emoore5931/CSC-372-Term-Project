@@ -11,6 +11,7 @@
     height: var(--hero-height);
     display: grid;
     align-items: start;
+    border-bottom: 5px solid var(--primary-color);
 }
 
 .hero > * {
@@ -24,7 +25,8 @@
     justify-content: center;
     width: var(--hero-details-width);
     height: var(--hero-details-height);
-    border: 2.5px solid var(--secondary-color-light);
+    border: 2.5px solid var(--secondary-color);
+    border-radius: 4px;
     margin: auto;
     z-index: 5;
 }
@@ -36,10 +38,16 @@
 .hero-details-button {
     margin-top: 10%;
     background-color: transparent;
+    width: auto;
+    color: var(--secondary-color);
+    border: none;
 }
 
 .hero-details-button:hover {
     background-color: transparent;
+    color: var(--quaternary-color);
+    border: 2px solid var(--quaternary-color);
+    border-radius: 8px;
 }
 
 .hero-slideshow-container {
@@ -63,7 +71,7 @@
 }
 
 #aboutUs > h2 {
-    border-bottom: 2px solid var(--tertiary-color-light);
+    border-bottom: 2px solid var(--tertiary-color);
     width: 90%;
     margin: auto;
     padding-bottom: 4px;
@@ -75,10 +83,11 @@
     margin: 40px auto;
     display: flex;
     flex-direction: row;
-    color: var(--secondary-color-dark) !important;
-    background-color: var(--quaternary-color);
+    color: var(--primary-color) !important;
+    background-color: var(--background-color-secondary);
     padding: 10px;
-    border: 3px solid var(--tertiary-color-dark);
+    border: 3px solid var(--quaternary-color);
+    border-radius: 4px;
 }
 
 #aboutUs > section > img {
@@ -98,10 +107,10 @@
     width: 90%;
     height: 350px;
     margin: 40px auto;
-    color: var(--secondary-color-dark) !important;
-    background-color: var(--quaternary-color);
+    background-color: var(--background-color-secondary);
     padding: 10px;
-    border: 3px solid var(--tertiary-color-dark);
+    border: 3px solid var(--tertiary-color);
+    border-radius: 4px;
     overflow: hidden;
 }
 
@@ -121,10 +130,12 @@
 
 .promo-details-container > h2 {
     flex: 1;
+    color: var(--primary-color) !important;
 }
 
 .promo-details-container > p {
     flex: 1;
+    color: var(--secondary-color) !important;
 }
 
 .promo-button-container {

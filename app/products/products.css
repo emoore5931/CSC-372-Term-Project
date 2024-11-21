@@ -1,5 +1,11 @@
 h2 {
+    display: block;
     margin: 6px 0;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    width: fit-content;
+    padding: 15px; 
+    margin: 5px auto 5px auto;
 }
 
 hr {
@@ -21,8 +27,9 @@ main {
     margin: auto;
     width: fit-content;
     height: auto;
-    background-color: white;
-    border-radius: 4px;
+    background-color: transparent;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 8px;
     padding: 2px;
 }
 
@@ -56,8 +63,8 @@ main {
     justify-content: start;
     overflow-x: scroll;
     overflow-y: hidden;
-    background-color: var(--quaternary-color);
-    border-color: var(--tertiary-color-dark);
+    background-color: var(--background-color-secondary);
+    border-color: var(--tertiary-color);
     border-radius: 4px;
     gap: 40px;
     box-shadow: 6px 4px darkgray;
@@ -72,8 +79,8 @@ main {
     justify-content: start;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: var(--quaternary-color);
-    border-color: var(--tertiary-color-dark);
+    background-color: var(--background-color-secondary);
+    border-color: var(--tertiary-color);
     border-radius: 4px;
     gap: 20px;
     box-shadow: 8px 6px darkgray;
@@ -97,8 +104,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 2px solid var(--tertiary-color-dark);
-    background-color: var(--primary-color-light);
+    border: 2px solid var(--quaternary-color);
+    border-radius: 4px;
+    background-color: var(--primary-color);
     overflow: hidden;
 }
 
@@ -108,7 +116,7 @@ main {
     height: auto;
     object-fit: fill;
     overflow: hidden;
-    background-color: var(--quaternary-color-dark);
+    background-color: var(--tertiary-color);
     padding: 2px;
     border-radius: 1px;
 }
@@ -166,7 +174,7 @@ main {
     width: 75vw;
     height: 85vh;
     margin: auto;
-    background-color: var(--quaternary-color-light);
+    background-color: var(--background-color-secondary);
     border-radius: 12px;
     z-index: 12;
     overflow: hidden;
@@ -188,6 +196,11 @@ main {
 #productModal > div > div {
     flex: 1;
     height: 100%;
+}
+
+#productModal > div > div > h2 {
+    color: var(--primary-color);
+    background-color: transparent;
 }
 
 #productImage {
