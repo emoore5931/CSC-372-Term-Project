@@ -1,0 +1,35 @@
+<%- include('./../partials/header') %>
+<%- include('./../partials/nav') %>
+
+<main class="flex-container-row" style="justify-content: center;">
+    <div class="account-entry-container">
+        <div id="entryCover" class="entry-cover flex-container-col">
+            <h2 id="coverHeader" class="header-lg text-center">New to Boxed Eats?</h2>
+            <div class="flex-container-row" style="justify-content: center;">
+                <button id="coverButton" class="button-secondary" onclick="EntryCover.stateSwitch()">Signup Here</button>
+            </div>
+        </div>
+        <div class="flex-container-row account-entry-forms-container">
+            <div class="login-container">
+                <form id="login" class="flex-container-col">
+                    <h2 class="header-md text-center">Login</h2>
+                    <input class="text-input" id="username" type="text" required placeholder="Username"/>
+                    <input class="text-input" id="password" type="password" placeholder="Password" required />
+                    <input id="submit" class="button-sm button-primary" type="submit" value="Submit"/>
+                </form>
+            </div>
+            <div class="signup-container">
+                <form id="signup" class="flex-container-col">
+                    <h2 class="header-md text-center">Signup</h2>
+                    <input class="text-input" id="newFirstName" type="text" placeholder="First Name" required/>
+                    <input class="text-input" id="newLastName" type="text" placeholder="Last Name" required/>
+                    <input class="text-input" id="newUsername" type="text" placeholder="Username" required/>
+                    <input class="text-input" id="newPassword" type="password" placeholder="Password" required/>
+                    <input id="newAccountSubmit" class="button-sm button-primary" type="submit" value="Submit"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('./../partials/footer') %>

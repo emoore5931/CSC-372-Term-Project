@@ -1,0 +1,49 @@
+<%- include('./../partials/header') %>
+<%- include('./../partials/nav') %>
+    <main>
+        <!--Hero-->
+        <div class="hero">
+            <!--Todo: https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+            <div class="hero-slideshow-container"></div>
+            <div class="flex-container-col hero-details-container">
+                <div class="header-lg text-center">Boxed Eats</div>
+                <div class="text-lg text-center">Meal Planning Redefined</div>
+                <div class="center-horizontal">
+                    <button class="button-primary button-md hero-details-button">
+                        Start Shopping <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="home-content-container">
+            <!--Promotional Content-->
+            <div id="featuredPromo" class="promo flex-container-row">
+                <img class="promo-image" src="<%= promoItem.img%>" alt="Featured Promotional Item Image"/>
+                <div class="promo-details-container flex-container-col">
+                    <h2 class="header-lg text-center">
+                        <%= promoItem.title %>
+                    </h2>
+                    <p class="promo-details-item-desc">
+                        <%= promoItem.description %>
+                    </p>
+                    <div class="promo-button-container">
+                        <button class="button-primary button-sm" src="<%= promoItem.link%>">View</button>
+                    </div>
+                </div>
+            </div>
+            <!--About Us section-->
+            <article id="aboutUs" class="flex-container-col">
+                <h2 class="header-md text-center">What is Boxed Eats?</h2>
+                <section>
+                    <div class="about-us-section-content-container">
+                        <h3 class="header-sm">Our Mission</h3>
+                        <p>Here at Boxed Eats we strive to provide an easy and elegant solution to meal planning and prepping. 
+                            We have state of the art chefs plan and prepare meals for you that are ready to heat and enjoy.
+                            Take the stress out of eating again and enjoy mealtime with Boxed Eats!</p>
+                    </div>
+                    <img src="/img/stock-photos/chef.jpg" alt="About us section image"/>
+                </section>
+            </article>
+        </div>
+    </main>
+<%- include('./../partials/footer') %>

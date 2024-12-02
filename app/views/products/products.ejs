@@ -1,0 +1,82 @@
+<%- include('./../partials/header') %>
+<%- include('./../partials/nav') %>
+
+<main>
+    <h2 class="text-center">Products</h2>
+    <hr>
+    <div class="searchbar-container"></div>
+        <div class="searchbar">
+            <input type="text" placeholder="Search...">
+            <button class="icon-button" id="searchbarSubmit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div>
+    <button class="icon-button" id="cartIconBttn"><i class="fa-solid fa-cart-shopping"></i></button>
+    <div id="productsContainer" class="flex-container-col">
+      <section>
+        <h3 class="text-center">Featured Deals</h3>
+        <!--Paging buttons-->
+        <div class="flex-container-row paging-buttons">
+            <button id="featuredDealsPrevious" class="icon-button"><i class="fa-solid fa-square-caret-left"></i></button>
+            <button id="featuredDealsNext" class="icon-button"><i class="fa-solid fa-square-caret-right"></i></button>
+        </div>
+        <!--Featured deal cards container-->
+        <div class="flex-container-row" id="featuredDeals">
+            <!--Product cards-->
+            <div class="product-card product-card-lg">
+                <img src="/img/stock-photos/temp_promo.jpg" alt="Product Image"/>
+                <h4>Product Name</h4>
+                <p class="text-sm text-right"><ins>$XX.XX</ins> <del>$XX.XX</del></p>
+                <div class="flex-container-row">
+                    <button class="icon-button" onclick="displayProductModal(-1)"><i class="fa-regular fa-eye"></i></button>
+                    <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+                </div>
+            </div>
+        </div>
+      </section>
+      <section>
+        <h3 class="text-center">All Kits</h3>
+        <!--Paging buttons-->
+        <div class="flex-container-row paging-buttons">
+            <button id="allKitsPrevious" class="icon-button" onclick=""><i class="fa-solid fa-square-caret-left"></i></button>
+            <button id="allKitsNext" class="icon-button" onclick=""><i class="fa-solid fa-square-caret-right"></i></button>
+        </div>
+        <!--All product cards container-->
+        <div class="flex-container-row" id="allKits">
+            <div class="product-card product-card-md">
+                <img src="/img/stock-photos/temp_promo.jpg" alt="Product Image"/>
+                <h4>Product Name</h4>
+                <p class="text-sm text-right"><ins>$XX.XX</ins> <del>$XX.XX</del></p>
+                <div class="flex-container-row">
+                    <button class="icon-button" onclick="displayProductModal(-1)"><i class="fa-regular fa-eye"></i></button>
+                    <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+                </div>
+            </div>
+        </div>
+      </section>
+    </div>
+
+    <!--Product Modal-->
+    <!--Stays hidden until view product is selected on the product card, data will be dynamically
+     filled by script-->
+    <div id="productModalContainer" class="flex-container-col">
+        <div id="productModal">
+            <button id="productModalDismiss" class="icon-button" onclick="dismissProductModal()"><i class="fa-solid fa-circle-xmark"></i></button>
+            <div class="flex-container-row">
+                <img id="productImage" alt="Product Image"/>
+                <div class="flex-container-col">
+                    <h2 id="productName" class="text-center"></h2>
+                    <p id="productDesc"></p>
+                    <p id="productPrice" class="text-center text-lg"></p>
+                    <div id="productModalButtonContainer" class="flex-container-row">
+                        <button id="moreInfo" class="button-primary">More Info</button>
+                        <button class="button-primary">Add to Wishlist</button>
+                        <button class="button-primary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<%- include('./../partials/footer') %>

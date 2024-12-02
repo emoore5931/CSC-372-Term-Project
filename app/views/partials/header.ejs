@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <link type="image/x-icon" rel="icon" href="/img/logos/boxed-eats-favicon-black.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Default Styling-->
+        <link rel="stylesheet" href="/stylesheets/default-style.css"/>
+        <!--Font Awesome-->
+        <script src="/scripts/font-awesome/fontawesome.js"></script>
+        <script src="/scripts/font-awesome/solid.js"></script>
+        <script src="/scripts/font-awesome/brands.js"></script>
+        <script src="/scripts/font-awesome/regular.js"></script>
+        <!--Default Script-->
+        <script defer src="/scripts/app.js"></script>
+        <!--Scripts-->
+        <% if (scripts) scripts.forEach(function(script) {%> <script defer src="<%= script %>"></script> <% }); %>
+        <!--Sylesheets-->
+        <% if (stylesheets) stylesheets.forEach(function(stylesheet) {%> <link rel="stylesheet" href="<%= stylesheet %>"/> <% }); %>
+    </head>
+<body>

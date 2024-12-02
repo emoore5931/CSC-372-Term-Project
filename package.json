@@ -9,6 +9,11 @@
   "author": "Ethan Moore",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.6.0"
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "better-sqlite3": "^11.6.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1"
   }
 }

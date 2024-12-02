@@ -11,34 +11,37 @@
 <html lang="en">
     <head>
         <title>Boxed Eats - Home</title>
-        <link type="image/x-icon" rel="icon" href="./resources/images/logos/boxed-eats-favicon-black.png"/>
+        <link type="image/x-icon" rel="icon" href="./../../public/img/logos/boxed-eats-favicon-color.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Styling-->
-        <link rel="stylesheet" href="./default-style.css"/>
-        <link rel="stylesheet" href="./app/index/index.css"/>
+        <link rel="stylesheet" href="./../../default-style.css"/>
+        <link rel="stylesheet" href="./index.css"/>
         <!--Font Awesome-->
-        <script src="./resources/fontawesome/fontawesome.js"></script>
-        <script src="./resources/fontawesome/solid.js"></script>
-        <script src="./resources/fontawesome/brands.js"></script>
+        <script src="./../../resources/fontawesome/fontawesome.js"></script>
+        <script src="./../../resources/fontawesome/solid.js"></script>
+        <script src="./../../resources/fontawesome/brands.js"></script>
+        <script src="./../../resources/fontawesome/regular.js"></script>
         <!--Default Script-->
-        <script defer src="./app/app.js"></script>
+        <script defer src="./../app.js"></script>
+        <!--Script-->
+        <script defer src="./index.js"></script>
     </head>
     <body>
         <header>
             <!--Navbar-->
             <nav id="navTop">
                 <div class="banner-logo">
-                    <img src="./resources/images/logos/boxed-eats-favicon-color.png" alt="Boxed Eats Logo"/>
+                    <img src="./../../public/img/logos/boxed-eats-favicon-color.png" alt="Boxed Eats Logo"/>
                 </div>
                 <div class="banner-title header-md">Boxed Eats</div>
                 <div class="banner-button-container">
                     <button class="banner-button" onclick="window.location.href = './index.html'">
                         <i class="fa-solid fa-house"></i>
                     </button>
-                    <button class="banner-button" onclick="window.location.href = './app/products/products.html'">
+                    <button class="banner-button" onclick="window.location.href = './../products/products.html'">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
-                    <button class="banner-button" onclick="window.location.href = './app/account-login/login.html'">
+                    <button class="banner-button" onclick="window.location.href = './../account-login/login.html'">
                         <i class="fa-solid fa-user"></i>
                     </button>
                     <button id="extendNavButton" class="banner-button">
