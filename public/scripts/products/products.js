@@ -1,11 +1,12 @@
-var modalContainerRef = document.getElementById("productModalContainer");
-var modalRef = document.getElementById("productModal");
-var productImageRef = document.getElementById("productImage");
-var productNameRef = document.getElementById("productName");
-var productDescRef = document.getElementById("productDesc");
-var productPriceRef = document.getElementById("productPrice");
-var moreInfoBttnRef = document.getElementById("moreInfo");
-var cartIconBttnRef = document.getElementById("cartIconBttn");
+"use strict";
+const modalContainerRef = document.getElementById("productModalContainer");
+const modalRef = document.getElementById("productModal");
+const productImageRef = document.getElementById("productImage");
+const productNameRef = document.getElementById("productName");
+const productDescRef = document.getElementById("productDesc");
+const productPriceRef = document.getElementById("productPrice");
+const moreInfoBttnRef = document.getElementById("moreInfo");
+const cartIconBttnRef = document.getElementById("cartIconBttn");
 
 moreInfoBttnRef.addEventListener("click", () => {window.location.href = "./../product-details/product-details.html"});
 cartIconBttnRef.addEventListener("click", () => {window.location.href = "./../cart/cart.html"});

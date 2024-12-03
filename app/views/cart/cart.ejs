@@ -1,0 +1,83 @@
+<%- include('./../partials/header') %>
+<%- include('./../partials/nav') %>
+
+<main class="flex-container-row">
+    <aside id="productListContainer">
+        <h2 class="text-center header-lg">My Cart</h2>
+        <div id="productList" class="flex-container-col">
+            <% productList.forEach((product) => { %>
+                <div class="product-list-item" id="product1">
+                    <img src="<%= product.img %>" alt="Product Image"/>
+                    <p><%= product.title %></p>
+                    <% if (product.isDiscounted) { %>
+                        <p>$<%= product.discountedPrice %></p>
+                    <% } else { %>
+                        <p>$<%= product.price %></p>
+                    <% } %>
+                    <input type="number" min="1" max="99" value="<%= product.quantity %>">
+                    <div>
+                        <button class="icon-button" id="changeQuantity"><i class="fa-solid fa-circle-check"></i></button>
+                        <button class="icon-button" id="removeItem"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </aside>
+    <aside id="orderSummaryContainer">
+        <h2 class="text-center header-lg">Order Summary</h2>
+        <div id="orderSummary">
+            <div id="receiptContainer" class="flex-container-col text-md">
+                <div id="productSums" class="flex-container-col">
+                    <% productList.forEach((product) => { %>
+                        <div id="product'<%= product.id %>'Sum">
+                            <p class="order-summary-product-title"><%= product.title %></p><br>
+                            <div class="flex-container-row">
+                                <p><span id="product<%= product.id %>Base">$
+                                    <% if (product.isDiscounted) { %>
+                                        <%= product.discountedPrice %>
+                                    <% } else { %>
+                                        <%= product.price %>
+                                    <% } %>
+                                </span> x <span id="product'<%= product.id %>'Quantity"><%= product.quantity %></span>:</p>
+                                <p id="product'<%= product.id %>'Total">
+                                    <% if (product.isDiscounted) { %>
+                                        <%= product.discountedPrice * product.quantity %>
+                                    <% } else { %>
+                                        <%= product.price * product.quantity %>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+
+                <!-- todo: implement calculation functionality -->
+                <div id="finalCalculations" class="flex-container-col">
+                    <div id="subtotalContainer" class="flex-container-row">
+                        <p>Subtotal:</p>
+                        <p id="subTotal">$00.00</p>
+                    </div>
+
+                    <div class="flex-container-row">
+                        <p>Sales Tax (<span id="salesTax">6.75%</span>):</p>
+                        <p id="salesTaxVal">$0.00</p>
+                    </div>
+                    <div class="flex-container-row">
+                        <p>Delivery Fee:</p>
+                        <p id="deliveryFee">$0.00</p>
+                    </div>
+
+                    <div class="flex-container-row">
+                        <p>Total:</p>
+                        <p id="total">$0.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="orderSummaryBttnContainer">
+            <button id="checkout" class="button-primary button-md">Checkout</button>
+        </div>
+    </aside>
+</main>
+
+<%- include('./../partials/footer') %>

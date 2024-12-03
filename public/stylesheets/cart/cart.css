@@ -62,7 +62,7 @@ main {
 }
 
 #receiptContainer {
-    background-image: url(./../../resources/images/backgrounds/order-sum-background.png);
+    background-image: url(/img/backgrounds/order-sum-background.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;

@@ -66,8 +66,34 @@ function store(req, res, next) {
     }
 }
 
+function cart(req, res, next) {
+    const sampleCartProducts = [{
+        id: -1,
+        title: "Sample Product",
+        price: 99.99,
+        img: "",
+        isDiscounted: true,
+        discountedPrice: 39.99,
+        quantity: 1
+    }];
+
+    try {
+        res.render("cart/cart", {
+            title: "Boxed Eats - Cart",
+            scripts: config.CART_SCRIPTS,
+            stylesheets: config.CART_STYLES,
+            productList: sampleCartProducts
+        });
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
 module.exports = {
     homePage,
     login,
-    store
+    store,
+    cart
 };

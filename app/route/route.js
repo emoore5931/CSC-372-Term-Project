@@ -20,4 +20,6 @@ router.get("/login", controller.login);
 
 router.get("/kits/store", controller.store);
 
+router.get("/cart", controller.cart);
+
 module.exports = router;
