@@ -21,16 +21,22 @@
         </div>
         <!--Featured deal cards container-->
         <div class="flex-container-row" id="featuredDeals">
-            <!--Product cards-->
-            <div class="product-card product-card-lg">
-                <img src="/img/stock-photos/temp_promo.jpg" alt="Product Image"/>
-                <h4>Product Name</h4>
-                <p class="text-sm text-right"><ins>$XX.XX</ins> <del>$XX.XX</del></p>
-                <div class="flex-container-row">
-                    <button class="icon-button" onclick="displayProductModal(-1)"><i class="fa-regular fa-eye"></i></button>
-                    <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
-                </div>
-            </div>
+            <% kitList.forEach((kit) => {%>
+                <% if (kit.isFeatured) %>
+                    <div class="product-card product-card-lg">
+                        <img src="<%= kit.img %>" alt="Product Image"/>
+                        <h4><%= kit.title %></h4>
+                        <% if (kit.isDiscounted && kit.discountPrice) { %>
+                            <p class="text-sm text-right"><ins>$<%= kit.discountPrice %></ins> <del>$<%= kit.price %></del></p>
+                        <% } else { %>
+                            <p class="text-sm text-right">$<%= kit.price %></p>
+                        <% } %>
+                        <div class="flex-container-row">
+                            <button class="icon-button" onclick="displayProductModal(new Kit('<%= kit.id %>', '<%= kit.title %>', '<%= kit.description %>', '<%= kit.price %>', '<%= kit.img %>', '<%= kit.isDiscounted %>', '<%= kit.discountPrice %>'))"><i class="fa-regular fa-eye"></i></button>
+                            <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+                        </div>
+                    </div>
+            <% }) %>
         </div>
       </section>
       <section>
@@ -42,15 +48,21 @@
         </div>
         <!--All product cards container-->
         <div class="flex-container-row" id="allKits">
-            <div class="product-card product-card-md">
-                <img src="/img/stock-photos/temp_promo.jpg" alt="Product Image"/>
-                <h4>Product Name</h4>
-                <p class="text-sm text-right"><ins>$XX.XX</ins> <del>$XX.XX</del></p>
-                <div class="flex-container-row">
-                    <button class="icon-button" onclick="displayProductModal(-1)"><i class="fa-regular fa-eye"></i></button>
-                    <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+            <% kitList.forEach((kit) => {%>
+                <div class="product-card product-card-md">
+                    <img src="<%= kit.img %>" alt="Product Image"/>
+                    <h4><%= kit.title %></h4>
+                    <% if (kit.isDiscounted && kit.discountPrice) { %>
+                        <p class="text-sm text-right"><ins>$<%= kit.discountPrice %></ins> <del>$<%= kit.price %></del></p>
+                    <% } else { %>
+                        <p class="text-sm text-right">$<%= kit.price %></p>
+                    <% } %>
+                    <div class="flex-container-row">
+                        <button class="icon-button" onclick="displayProductModal(new Kit('<%= kit.id %>', '<%= kit.title %>', '<%= kit.description %>', '<%= kit.price %>', '<%= kit.img %>', '<%= kit.isDiscounted %>', '<%= kit.discountPrice %>'))"><i class="fa-regular fa-eye"></i></button>
+                        <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+                    </div>
                 </div>
-            </div>
+            <% }) %>
         </div>
       </section>
     </div>

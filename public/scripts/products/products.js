@@ -10,9 +10,19 @@ var cartIconBttnRef = document.getElementById("cartIconBttn");
 moreInfoBttnRef.addEventListener("click", () => {window.location.href = "./../product-details/product-details.html"});
 cartIconBttnRef.addEventListener("click", () => {window.location.href = "./../cart/cart.html"});
 
-function displayProductModal(productId) {
+function Kit(kitId, kitTitle, kitDesc, kitPrice, kitImg, isDiscounted, discountPrice) {
+    this.id = kitId;
+    this.img = kitImg;
+    this.title = kitTitle;
+    this.description = kitDesc;
+    this.price = kitPrice;
+    this.isDiscounted = isDiscounted;
+    this.discountPrice = discountPrice;
+}
+
+function displayProductModal(kit) {
     
-    insertModalData(productId);
+    insertModalData(kit);
 
     modalContainerRef.classList.add("display");
     modalRef.classList.add("display");
@@ -26,14 +36,21 @@ function dismissProductModal() {
     enableScroll();
 }
 
-function insertModalData(productId) {
-    if (productId < 0) {
+function insertModalData(kit) {
+    if (!kit) {
         productImageRef.src = "./../../resources/images/stock-photos/temp_promo.jpg";
         productNameRef.innerText = "Product Name";
         productDescRef.innerText = "Product description goes here. This text and all the data for products will be dynamically generated";
         productPriceRef.innerHTML = "$" + "XX.XX";
     } else {
-        //call database for modal data
+        productImageRef.src = kit.img;
+        productNameRef.innerText = kit.title;
+        productDescRef.innerText = kit.description;
+        if (kit.isDiscounted) {
+            productPriceRef.innerHTML = "<del>$" + kit.price + "</del> <ins>$" + kit.discountPrice + "</ins>";
+        } else {
+            productPriceRef.innerHTML = "$" + kit.price;
+        }
     }
 }
 

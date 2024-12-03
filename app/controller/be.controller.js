@@ -39,11 +39,25 @@ function login(req, res, next) {
 }
 
 function store(req, res, next) {
+    const demoKits = [
+        {
+            id: -1,
+            title: "Sample Product",
+            description: "This is a sample product.",
+            isDiscounted: true,
+            price: 99.99,
+            discountPrice: 39.99,
+            img: "",
+            isFeatured: true
+        }
+    ]
+
     try {
         res.render("products/products", {
             title: "Boxed Eats - Kits",
             scripts: config.STORE_SCRIPTS,
             stylesheets: config.STORE_STYLES,
+            kitList: demoKits
         });
     } catch (error) {
         console.error(error);

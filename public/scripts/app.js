@@ -1,8 +1,8 @@
-var navSideRef = document.getElementById("navSide");
-var extendNavRef = document.getElementById("extendNavButton");
-var dismissNavRef = document.getElementById("dismissNavSide");
-var cartNavBttnRef = document.getElementById("cartNavBttn");
-var navSideIsExtended = false;
+const navSideRef = document.getElementById("navSide");
+const extendNavRef = document.getElementById("extendNavButton");
+const dismissNavRef = document.getElementById("dismissNavSide");
+const cartNavBttnRef = document.getElementById("cartNavBttn");
+const navSideIsExtended = false;
 
 extendNavRef.addEventListener("click", sideNavControl);
 dismissNavRef.addEventListener("click", sideNavControl);
