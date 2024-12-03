@@ -6,18 +6,18 @@
         <h2 class="text-center header-lg">My Cart</h2>
         <div id="productList" class="flex-container-col">
             <% productList.forEach((product) => { %>
-                <div class="product-list-item" id="product1">
+                <div class="product-list-item" id="product<%= product.id %>">
                     <img src="<%= product.img %>" alt="Product Image"/>
-                    <p><%= product.title %></p>
+                    <p id="productTitle"><%= product.title %></p>
                     <% if (product.isDiscounted) { %>
-                        <p>$<%= product.discountedPrice %></p>
+                        <p id="productPrice">$<%= product.discountedPrice %></p>
                     <% } else { %>
-                        <p>$<%= product.price %></p>
+                        <p id="productPrice">$<%= product.price %></p>
                     <% } %>
-                    <input type="number" min="1" max="99" value="<%= product.quantity %>">
+                    <input id="productQuantity" type="number" min="1" max="99" value="<%= product.quantity %>">
                     <div>
-                        <button class="icon-button" id="changeQuantity"><i class="fa-solid fa-circle-check"></i></button>
-                        <button class="icon-button" id="removeItem"><i class="fa-solid fa-circle-xmark"></i></button>
+                        <button class="icon-button changeQuantity" data-product-id="<%= product.id %>"><i class="fa-solid fa-circle-check"></i></button>
+                        <button class="icon-button removeItem"><i class="fa-solid fa-circle-xmark"></i></button>
                     </div>
                 </div>
             <% }) %>
@@ -29,7 +29,7 @@
             <div id="receiptContainer" class="flex-container-col text-md">
                 <div id="productSums" class="flex-container-col">
                     <% productList.forEach((product) => { %>
-                        <div id="product'<%= product.id %>'Sum">
+                        <div id="product<%= product.id %>Sum">
                             <p class="order-summary-product-title"><%= product.title %></p><br>
                             <div class="flex-container-row">
                                 <p><span id="product<%= product.id %>Base">$
@@ -38,8 +38,8 @@
                                     <% } else { %>
                                         <%= product.price %>
                                     <% } %>
-                                </span> x <span id="product'<%= product.id %>'Quantity"><%= product.quantity %></span>:</p>
-                                <p id="product'<%= product.id %>'Total">
+                                </span> x <span id="product<%= product.id %>SumQuantity"><%= product.quantity %></span>:</p>
+                                <p id="product<%= product.id %>SumTotal">
                                     <% if (product.isDiscounted) { %>
                                         <%= product.discountedPrice * product.quantity %>
                                     <% } else { %>
