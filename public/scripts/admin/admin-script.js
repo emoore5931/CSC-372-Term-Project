@@ -16,13 +16,13 @@ function initNavButtons() {
     } else {
         let buttons = navRef.item(0).children
         buttons.item(0).addEventListener("click", () => {
-            window.location.href = "./../admin-products/admin-products.html";
+            window.location.href = "/be/admin/products";
         });
         buttons.item(1).addEventListener("click", () => {
-            window.location.href = "./../admin-upload/admin-upload.html";
+            window.location.href = "/be/admin/upload";
         });
         buttons.item(2).addEventListener("click", () => {
-            window.location.replace("./../../../index.html");
+            window.location.replace("/be/admin/sign-out");
         });
     }
 }

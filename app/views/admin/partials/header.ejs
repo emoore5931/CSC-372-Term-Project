@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Boxed Eats - Admin View</title>
+        <link type="image/x-icon" rel="icon" href="./../../../resources/images/logos/boxed-eats-favicon-black.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Default stylesheet-->
+        <link rel="stylesheet" href="/stylesheets/admin/admin-style.css"/>
+        <script src="/scripts/font-awesome/fontawesome.js"></script>
+        <script src="/scripts/font-awesome/solid.js"></script>
+        <!-- Default script -->
+        <script defer src="/scripts/admin/admin-script.js"></script>
+        
+        <!--Scripts-->
+        <% if (scripts) scripts.forEach(function(script) {%> <script defer src="<%= script %>"></script> <% }); %>
+        <!--Sylesheets-->
+        <% if (stylesheets) stylesheets.forEach(function(stylesheet) {%> <link rel="stylesheet" href="<%= stylesheet %>"/> <% }); %>
+    </head>
+
+    <body>

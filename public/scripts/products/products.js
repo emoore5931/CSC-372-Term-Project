@@ -8,8 +8,7 @@ const productPriceRef = document.getElementById("productPrice");
 const moreInfoBttnRef = document.getElementById("moreInfo");
 const cartIconBttnRef = document.getElementById("cartIconBttn");
 
-moreInfoBttnRef.addEventListener("click", () => {window.location.href = "./../product-details/product-details.html"});
-cartIconBttnRef.addEventListener("click", () => {window.location.href = "./../cart/cart.html"});
+cartIconBttnRef.addEventListener("click", () => {window.location.href = "/be/cart"});
 
 function Kit(kitId, kitTitle, kitDesc, kitPrice, kitImg, isDiscounted, discountPrice) {
     this.id = kitId;
@@ -39,7 +38,7 @@ function dismissProductModal() {
 
 function insertModalData(kit) {
     if (!kit) {
-        productImageRef.src = "./../../resources/images/stock-photos/temp_promo.jpg";
+        productImageRef.src = "/img/stock-photos/temp_promo.jpg";
         productNameRef.innerText = "Product Name";
         productDescRef.innerText = "Product description goes here. This text and all the data for products will be dynamically generated";
         productPriceRef.innerHTML = "$" + "XX.XX";
@@ -52,6 +51,7 @@ function insertModalData(kit) {
         } else {
             productPriceRef.innerHTML = "$" + kit.price;
         }
+        moreInfoBttnRef.addEventListener("click", () => {window.location.href = `/be/product/${kit.id}/info`});
     }
 }
 

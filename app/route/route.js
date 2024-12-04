@@ -20,6 +20,14 @@ router.get("/login", controller.login);
 
 router.get("/kits/store", controller.store);
 
+router.get("/product/:id/info", controller.productInfo);
+
 router.get("/cart", controller.cart);
+
+router.get("/admin/products", controller.adminProducts);
+
+router.get("/admin/upload", controller.adminUpload);
+
+router.get("/admin/edit", controller.adminEdit);
 
 module.exports = router;

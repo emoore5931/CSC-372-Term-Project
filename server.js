@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 const server = app.listen(config.PORT, function () {
-  console.log("App launched at http://localhost:" + config.PORT);
+  console.log(`App launched at http://${config.HOST}:${config.PORT}`);
 });
 
 process.on("SIGINT", cleanUp);

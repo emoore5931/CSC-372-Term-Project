@@ -1,0 +1,14 @@
+<%- include('./../partials/header') %>
+<%- include('./../partials/nav') %>
+
+<main>
+<p>Submit a file containing bulk product data. <span id="acceptedFileTypes">(JSON, TXT)</span></p>
+<label>
+    <input id="fileInput" type="file" required accept=".json, .txt">
+    <i class="fa-solid fa-file-import fa-1x"></i>
+</label>
+<p id="fileName">File Not Selected</p>
+<button>Submit</button>
+</main>
+
+<%- include('./../partials/footer') %>

@@ -1,0 +1,46 @@
+<%- include('./../partials/header') %>
+<%- include('./../partials/nav') %>
+
+<main class="flex-container-col">
+    <h2 class="text-center header-lg"><%= product.title %></h2>
+    <div id="productImageGallery" class="flex-container-row">
+        <div id="selectedImgDisplayContainer">
+            <button id="previousImage" class="icon-button"><i class="fa-solid fa-angle-left"></i></button>
+            <button id="nextImage" class="icon-button"><i class="fa-solid fa-angle-right"></i></button>
+            <img id="selectedImgDisplay" alt="Selected product image" src="<%= product.images[0] %>" current-image-id="galleryImage1"/>
+        </div>
+        <div id="imgGallery" class="flex-container-col">
+            <% product.images.forEach((img) => { %>
+                <img class="gallery-image" src="<%= img %>" alt="Product Image"/>
+            <% }); %>
+        </div>
+    </div>
+    <p id="productPrice" class="text-center text-lg">$<%= product.price%></p>
+    <div id="productButtonContainer" class="flex-container-row">
+        <button id="addToWishlist" class="icon-button"><i class="fa-solid fa-clipboard-list"></i></button>
+        <button id="addToCart" class="icon-button"><i class="fa-solid fa-cart-plus"></i></button>
+    </div>
+    <article id="productInfo">
+        <section id="productDescription">
+            <%= product.description %>
+        </section>
+        <section id="productSpecifications">
+            <h3>Contents</h3>
+            <ul>
+                <% product.contents.forEach((content) => { %>
+                    <li><%= content %></li>
+                <% }); %>
+            </ul>
+        </section>
+        <section id="productAllergenWarnings">
+            <h3>Product Allergens</h3>
+            <ul>
+                <% product.allergens.forEach((allergen) => { %>
+                    <li><%= allergen %></li>   
+                <% }); %>
+            </ul>
+        </section>
+    </article>
+</main>
+
+<%- include('./../partials/footer') %>

@@ -1,0 +1,26 @@
+<%- include('./../partials/header') %>
+<%- include('./../partials/nav') %>
+
+<main>
+    <h2 id="productNameTitle">Example Product</h2>
+    <p>Edit Data:</p>
+    <div id="editFieldsContainer">
+    <label for="productNameEdit">Name:</label>
+    <input id="productNameEdit" type="text" placeholder="Example Product"/> 
+    <br>
+    <label for="groupID">Group ID:</label>
+    <input id="groupID" type="number" placeholder="0"/>
+    <br>
+    <label for="imagePath">Image Path:</label>
+    <input id="imagePath" type="text" placeholder="./example"/>
+    <br>
+    <label for="description">Description:</label>
+    <input id="description" type="text" placeholder="Example description."/>
+    <br>
+    <label for="cost">Cost:</label>
+    <input id="cost" type="text" placeholder="$0.00"/>
+    </div>
+    <button id="submitChanges">Submit Changes</button>
+</main>
+
+<%- include('./../partials/footer') %>

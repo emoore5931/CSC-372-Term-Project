@@ -33,8 +33,8 @@ function initOptionFunctionality() {
 function editProductRedirect(productNumber) {
     if (productNumber == 0) {
         //direct to example product edit page
-        window.location.href = "./../product-edit/product-edit.html";
+        window.location.href = "/be/admin/edit";
     }
 
-    //furthur develop once backend functionality is developed
+    //further develop once backend functionality is developed
 }

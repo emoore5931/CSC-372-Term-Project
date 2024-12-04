@@ -9,7 +9,7 @@
                 <div class="header-lg text-center">Boxed Eats</div>
                 <div class="text-lg text-center">Meal Planning Redefined</div>
                 <div class="center-horizontal">
-                    <button class="button-primary button-md hero-details-button">
+                    <button id="heroButton" class="button-primary button-md hero-details-button">
                         Start Shopping <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                 </div>
@@ -27,7 +27,7 @@
                         <%= promoItem.description %>
                     </p>
                     <div class="promo-button-container">
-                        <button class="button-primary button-sm" src="<%= promoItem.link%>">View</button>
+                        <button class="button-primary button-sm" id="viewPromo" data-link="<%= promoItem.link%>">View</button>
                     </div>
                 </div>
             </div>
