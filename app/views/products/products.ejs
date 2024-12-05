@@ -20,10 +20,11 @@
             <button id="featuredDealsNext" class="icon-button"><i class="fa-solid fa-square-caret-right"></i></button>
         </div>
         <!--Featured deal cards container-->
-        <div class="flex-container-row" id="featuredDeals">
+        <div class="flex-container-row" id="featuredDeals" data-limit="<%= featuredLimit %>">
+            <% let elementCount = 0 %>
             <% kitList.forEach((kit) => {%>
-                <% if (kit.isFeatured) %>
-                    <div class="product-card product-card-lg">
+                <% if (kit.isFeatured) { %>
+                    <div class="product-card product-card-lg <% if (elementCount >= featuredLimit) { %> hidden <% }; %>" data-card-id="<%= elementCount + 1 %>">
                         <img src="<%= kit.img %>" alt="Product Image"/>
                         <h4><%= kit.title %></h4>
                         <% if (kit.isDiscounted && kit.discountPrice) { %>
@@ -33,10 +34,11 @@
                         <% } %>
                         <div class="flex-container-row">
                             <button class="icon-button" onclick="displayProductModal(new Kit('<%= kit.id %>', '<%= kit.title %>', '<%= kit.description %>', '<%= kit.price %>', '<%= kit.img %>', '<%= kit.isDiscounted %>', '<%= kit.discountPrice %>'))"><i class="fa-regular fa-eye"></i></button>
-                            <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+                            <button class="icon-button add-to-cart" data-id="<%= kit.id %>"><i class="fa-solid fa-square-plus"></i></button>
                         </div>
                     </div>
-            <% }) %>
+                <% elementCount++ }; %>
+            <% }); %>
         </div>
       </section>
       <section>
@@ -47,9 +49,10 @@
             <button id="allKitsNext" class="icon-button" onclick=""><i class="fa-solid fa-square-caret-right"></i></button>
         </div>
         <!--All product cards container-->
-        <div class="flex-container-row" id="allKits">
+        <div class="flex-container-row" id="allKits" data-limit="<%= kitLimit %>">
+            <% elementCount = 0; %>
             <% kitList.forEach((kit) => {%>
-                <div class="product-card product-card-md">
+                <div class="product-card product-card-md <% if (elementCount >= kitLimit) { %> hidden <% }; %>" data-card-id="<%= elementCount + 1 %>" <% if (elementCount > kitLimit) {%> style="display: hidden;" <% } %>>
                     <img src="<%= kit.img %>" alt="Product Image"/>
                     <h4><%= kit.title %></h4>
                     <% if (kit.isDiscounted && kit.discountPrice) { %>
@@ -62,6 +65,7 @@
                         <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
                     </div>
                 </div>
+                <% elementCount++; %>
             <% }) %>
         </div>
       </section>

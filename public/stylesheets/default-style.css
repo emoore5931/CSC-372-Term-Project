@@ -424,3 +424,7 @@ button.icon-button {
     color: var(--tertiary-color-dark);
     min-width: 10px !important;
 }
+
+.hidden {
+    display: none !important;
+}

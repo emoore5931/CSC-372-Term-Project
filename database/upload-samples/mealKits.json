@@ -1,0 +1,119 @@
+{
+    "kitData": [
+      {
+        "productData": {
+          "name": "Spaghetti and Meatballs",
+          "price": 32.84,
+          "description": "A classic Italian-American dish featuring tender spaghetti noodles smothered in a rich, meaty tomato sauce and topped with juicy meatballs. Our meatballs are handcrafted with a blend of ground beef and pork, seasoned to perfection. This comforting meal is perfect for any occasion.",
+          "featured": 1
+        },
+        "mealKitData": {
+          "categoryID": "3",
+          "contents": "Ground beef, ground pork, breadcrumbs, egg, Parmesan cheese, garlic, onion, Italian seasoning, salt, pepper, crushed tomatoes, tomato paste, olive oil, onion, garlic, basil, oregano, salt, pepper, spaghetti pasta",
+          "allergens": "Wheat (pasta), milk (Parmesan cheese), soy (soy lecithin in some pasta), egg."
+        },
+        "kitImages": [  
+          {
+              "description": "Spaghetti and Meatballs head image",
+              "url": "/img/kit-img/spaghetti_and_meatballs.webp"
+          },
+          {
+              "description": "sample image",
+              "url": "https://picsum.photos/seed/seed/200/300"
+          }
+        ]
+      },
+      {
+        "productData": {
+          "name": "Baked Ziti",
+          "price": 30.99,
+          "description": "A hearty and comforting Italian-American dish. Layers of ziti pasta are baked with a rich, meaty tomato sauce, creamy ricotta cheese, and melted mozzarella cheese. This classic recipe is perfect for family dinners and gatherings.",
+          "featured": 0
+        },
+        "mealKitData": {
+          "categoryID": "3",
+          "contents": "pasta, ricotta cheese, mozzarella cheese, tomato sauce, meat (ground beef or sausage), Parmesan cheese, eggs, Italian seasoning, salt, pepper",
+          "allergens": "Wheat (pasta), Milk (ricotta cheese, mozzarella cheese, Parmesan cheese), Egg"
+        },
+        "kitImages": [  
+          {
+              "description": "Baked Ziti head image",
+              "url": "/img/kit-img/baked-ziti.jpg"
+          },
+          {
+              "description": "sample image",
+              "url": "https://picsum.photos/seed/seed/200/300"
+          }
+        ]
+      },
+      {
+        "productData": {
+          "name": "Butter Chicken",
+          "price": 29.99,
+          "description": "A rich and creamy Indian dish featuring tender, juicy chicken marinated in a blend of aromatic spices and yogurt, then cooked in a velvety tomato-based sauce. This flavorful dish is often served with naan or rice.",
+          "featured": 1
+        },
+        "mealKitData": {
+          "categoryID": "2",
+          "contents": "Chicken, yogurt, tomato puree, cream, butter, garam masala, cumin, coriander, turmeric, ginger, garlic, chili powder, cardamom, cloves, cinnamon, salt, pepper",
+          "allergens": "Milk (yogurt, cream, butter)"
+        },
+        "kitImages": [  
+          {
+              "description": "Baked Ziti head image",
+              "url": "/img/kit-img/butter-chicken.jpg"
+          },
+          {
+              "description": "sample image",
+              "url": "https://picsum.photos/seed/seed/200/300"
+          }
+        ]
+      },
+      {
+        "productData": {
+          "name": "Chicken Salad Sandwiches",
+          "price": 27.49,
+          "description": "A classic, light and refreshing sandwich featuring creamy chicken salad made with tender chicken, celery, onion, mayonnaise, and a touch of lemon juice, served on your choice of bread.",
+          "featured": 0
+        },
+        "mealKitData": {
+          "categoryID": "2",
+          "contents": "Chicken, celery, onion, mayonnaise, lemon juice, salt, pepper, bread.",
+          "allergens": "Egg (mayonnaise)"
+        },
+        "kitImages": [  
+          {
+              "description": "Chicken Salad Sandwich head image",
+              "url": "/img/kit-img/chickensalad_sand.jpg"
+          },
+          {
+              "description": "sample image",
+              "url": "https://picsum.photos/seed/seed/200/300"
+          }
+        ]
+      },
+      {
+        "productData": {
+          "name": "Birria Tacos",
+          "price": 34.99,
+          "description": "A flavorful and authentic Mexican dish featuring slow-cooked, tender beef or goat meat marinated in a rich, spicy chili sauce. The meat is then served on warm corn tortillas with chopped onions, cilantro, and a side of consomé for dipping.",
+          "featured": 0
+        },
+        "mealKitData": {
+          "categoryID": "3",
+          "contents": "Beef or goat, chili peppers, onion, garlic, cumin, oregano, bay leaves, cinnamon, cloves, allspice, salt, pepper, corn tortillas, onion, cilantro, lime.",
+          "allergens": "None."
+        },
+        "kitImages": [  
+          {
+              "description": "Chicken Salad Sandwich head image",
+              "url": "/img/kit-img/birria_tacos.jpg"
+          },
+          {
+              "description": "sample image",
+              "url": "https://picsum.photos/seed/seed/200/300"
+          }
+        ]
+      }
+    ]
+}  

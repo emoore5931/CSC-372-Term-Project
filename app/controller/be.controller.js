@@ -49,25 +49,36 @@ function login(req, res, next) {
 }
 
 function store(req, res, next) {
-    const demoKits = [
-        {
-            id: -1,
-            title: "Sample Product",
-            description: "This is a sample product.",
-            isDiscounted: true,
-            price: 99.99,
-            discountPrice: 39.99,
-            img: "",
-            isFeatured: true
+
+    const retrievedKitDataList = model.getAllKitData();
+    console.log(retrievedKitDataList);
+
+    //extract necessary data
+    const kitList = [];
+    retrievedKitDataList.forEach((kitData) => {
+        const kit = {
+            id: kitData.productData.ID,
+            title: kitData.productData.name,
+            description: kitData.productData.description,
+            isDiscounted: kitData.discountData ? true : false,
+            price: kitData.productData.price,
+            discountPrice: kitData.discountData ? calculateDiscount(kitData.productData.price) : null,
+            img: kitData.kitImages.length > 0 ? kitData.kitImages[0].url : "",
+            isFeatured: kitData.productData.featured ? true : false
         }
-    ]
+
+        console.log(kit);
+        kitList.push(kit);
+    });
 
     try {
         res.render("products/products", {
             title: "Boxed Eats - Kits",
             scripts: config.STORE_SCRIPTS,
             stylesheets: config.STORE_STYLES,
-            kitList: demoKits
+            kitList: kitList,
+            featuredLimit: 3,
+            kitLimit: 20
         });
     } catch (error) {
         console.error(error);
