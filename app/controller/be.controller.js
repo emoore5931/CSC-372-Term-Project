@@ -1,5 +1,6 @@
 "use strict";
 const model = require("../model/be.model.js");
+const adminModel = require("../model/admin.model.js");
 const config = require("../../config/config.js");
 
 function homePage(req, res, next) {
@@ -92,11 +93,14 @@ function cart(req, res, next) {
 }
 
 function adminProducts(req, res, next) {
+    const products = adminModel.getAllKitData();
+
     try {
         res.render("admin/admin-products/admin-products", {
             title: "Product Listing",
             scripts: config.ADMIN_PRODUCT_SCRIPTS,
             stylesheets: config.ADMIN_PRODUCT_STYLES,
+            products: products
         });
     } catch (error) {
         console.error(error);
@@ -159,6 +163,86 @@ function productInfo(req, res, next) {
     }
 }
 
+function upload(req, res, next) {
+    const body = req.body;
+    const data = body;
+
+    console.log("Received data:");
+    console.log(body);
+
+    if (!data) {
+        res.status(400).send("Invalid data.");
+        return;
+    }
+
+    const uploadStatus = {
+        isSuccessful: false,
+        errAt: "",
+        err: ""
+    }
+
+    console.log("Attempting to upload data...");
+
+    if (data.products) {
+        data.products.forEach((product) => {
+            try {
+                adminModel.uploadProduct(product);
+                uploadStatus.isSuccessful = true;
+            } catch (error) {
+                console.error(error);
+                uploadStatus.errAt = `Product upload failed for '${product.name}'`;
+                uploadStatus.err = error.toString();
+                res.status(500).send(uploadStatus);
+            }
+        });
+    }
+
+    if (data.mealKits) {
+        data.mealKits.forEach((mealKit) => {
+            try {
+                adminModel.uploadMealKit(mealKit);
+                uploadStatus.isSuccessful = true;
+            } catch (error) {
+                console.error(error);
+                uploadStatus.errAt = `Meal kit upload failed for '${mealKit.productID}'`;
+                uploadStatus.err = error.toString();
+                res.status(500).send(uploadStatus);
+            }
+        });
+    }
+
+    if (data.images) {
+        data.images.forEach((image) => {
+            try {
+                adminModel.uploadKitImage(image);
+                uploadStatus.isSuccessful = true;
+            } catch (error) {
+                console.error(error);
+                uploadStatus.errAt = `Image upload failed for '${image.kitID}'`;
+                uploadStatus.err = error.toString();
+                res.status(500).send(uploadStatus);
+            }
+        });
+    }
+
+
+    res.status(200).send(uploadStatus);
+    console.log("Upload complete.");
+}
+
+function signOut(req, res, next) {
+    res.redirect("/"); //temp redirect
+
+    // try {
+    //     res.clearCookie("auth");
+    //     res.redirect("/be/login");
+    // } catch (error) {
+    //     console.error(error);
+    //     next(error);
+    //     res.status(500).send("Internal Server Error");
+    // }
+}
+
 module.exports = {
     homePage,
     login,
@@ -167,5 +251,7 @@ module.exports = {
     adminProducts,
     adminUpload,
     adminEdit,
-    productInfo
+    productInfo,
+    upload,
+    signOut
 };

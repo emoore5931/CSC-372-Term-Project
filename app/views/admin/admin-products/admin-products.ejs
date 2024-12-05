@@ -5,24 +5,29 @@
     <div id="dataContainer">
         <div id="dataGrid">
             <p><b>ID</b></p>
-            <p><b>Group ID</b></p>
-            <p><b>Image Path</b></p>
+            <p><b>Category ID</b></p>
+            <p><b>Images</b></p>
             <p><b>Name</b></p>
             <p><b>Description</b></p>
-            <p><b>Cost</b></p>
+            <p><b>Price</b></p>
             <p><b>Options</b></p>
-            <!--Example Product-->
-            <div>0</div>
-            <div>0</div>
-            <div>./example</div>
-            <div>Example Product</div>
-            <div>Example description</div>
-            <div>$0.00</div>
-            <div class="option-container">
-                <button><i class="fa-solid fa-pen"></i></button>
-                <button><i class="fa-solid fa-box-archive"></i></button>
-                <button><i class="fa-solid fa-trash"></i></button>
-            </div>
+            <% products.forEach(product => { %>
+                <div><%= product.productData.ID %></div>
+                <div><%= product.mealKitData.categoryID %></div>
+                <div>
+                    <% product.kitImages.forEach((img) => { %>
+                        <%= img.url %>, 
+                    <% }); %>
+                </div>
+                <div><%= product.productData.name %></div>
+                <div><%= product.productData.description %></div>
+                <div><%= product.productData.price %></div>
+                <div class="option-container">
+                    <button><i class="fa-solid fa-pen"></i></button>
+                    <button><i class="fa-solid fa-box-archive"></i></button>
+                    <button><i class="fa-solid fa-trash"></i></button>
+                </div>
+            <% }); %>
         </div>
     </div>
 </main>

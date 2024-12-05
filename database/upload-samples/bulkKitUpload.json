@@ -1,0 +1,10 @@
+{
+    "mealKits": [
+        {
+            "productID": "5",
+            "categoryID": "1",
+            "contents": "1.5kg of chicken, 1kg of rice, 500g of vegetables",
+            "allergens": "None"
+        }
+    ]
+}

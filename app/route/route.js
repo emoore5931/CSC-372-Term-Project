@@ -24,10 +24,16 @@ router.get("/product/:id/info", controller.productInfo);
 
 router.get("/cart", controller.cart);
 
+router.get("/admin", controller.adminProducts);
+
 router.get("/admin/products", controller.adminProducts);
 
 router.get("/admin/upload", controller.adminUpload);
 
 router.get("/admin/edit", controller.adminEdit);
+
+router.get("/admin/sign-out", controller.signOut);
+
+router.post("/admin/upload", controller.upload);
 
 module.exports = router;

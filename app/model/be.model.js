@@ -8,3 +8,8 @@ function getMealKits() {
 function getMealKit(id) {
     return db.get("SELECT * FROM Meal_Kits WHERE id = ?", id);
 }
+
+module.exports = {
+    getMealKit,
+    getMealKits
+};

@@ -1,0 +1,10 @@
+{
+    "products": [
+        {
+            "name": "test product",
+            "price": 100,
+            "description": "test description",
+            "featured": 0
+        }
+    ]
+}

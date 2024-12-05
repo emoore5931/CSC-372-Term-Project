@@ -13,7 +13,7 @@ function get(sql, ...params) {
 }
 
 function run(sql, ...params) {
-  return db.prepare(sql).run(params[0]);
+  return db.prepare(sql).run(params);
 }
 
 function exec(sql) {

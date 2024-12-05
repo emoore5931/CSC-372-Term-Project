@@ -1,0 +1,9 @@
+{
+    "images": [
+        {
+            "kitID": 5,
+            "description": "sample image",
+            "url": "https://picsum.photos/seed/seed/200/300"
+        }
+    ]
+}

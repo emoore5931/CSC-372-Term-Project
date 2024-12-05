@@ -6,8 +6,10 @@
   Scripting for admin-upload.html.
 */
 
+const UPLOAD_URL = "/be/admin/upload";
 const fileNameRef = document.getElementById("fileName");
 const fileInputRef = document.getElementById("fileInput");
+const submitButtonRef = document.getElementById("submit");
 let files;
 
 fileInputRef.addEventListener("change", (event) => {
@@ -17,6 +19,47 @@ fileInputRef.addEventListener("change", (event) => {
         fileNameRef.textContent = file.name + ", " + formatBytes(file.size);
     }
 })
+
+submitButtonRef.addEventListener("click", (event) => {
+    if (files.length <= 0) { return }
+
+    successfulUploads = [];
+    unsuccessfulUploads = [];
+
+    for (let file of files) {
+        if (file) {
+            let productData;
+            const reader = new FileReader();
+
+            reader.onload = async (event) => {
+                productData = event.target.result;
+                await fetch(UPLOAD_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: productData
+                }).then(response => {
+                    if (response.ok) {
+                        successfulUploads.push(file.name);
+                    } else {
+                        unsuccessfulUploads.push(file.name);
+                    }
+                }).catch(error => {
+                    console.error(error);
+                    alert("Error uploading file.");
+                });
+
+                let alertMessage = successfulUploads.length > 0 ? `Successfully uploaded: ${successfulUploads.join(", ")}` : "";
+                alertMessage += unsuccessfulUploads.length > 0 ? `; Failed to upload: ${unsuccessfulUploads.join(", ")}` : "";
+
+                alert(alertMessage);
+            };
+
+            reader.readAsText(file);
+        }
+    }
+});
 
 function formatBytes(bytes, decimals = 2) {
     if (!+bytes) 
