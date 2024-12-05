@@ -4,6 +4,11 @@
             "kitID": 5,
             "description": "sample image",
             "url": "https://picsum.photos/seed/seed/200/300"
+        },
+        {
+            "kitID": 1,
+            "description": "bento box image",
+            "url": "/img/stock-photos/temp_promo.jpg"
         }
     ]
 }

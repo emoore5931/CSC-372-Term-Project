@@ -17,20 +17,22 @@
         </div>
         <div id="home-content-container">
             <!--Promotional Content-->
-            <div id="featuredPromo" class="promo flex-container-row">
-                <img class="promo-image" src="<%= promoItem.img%>" alt="Featured Promotional Item Image"/>
-                <div class="promo-details-container flex-container-col">
-                    <h2 class="header-lg text-center">
-                        <%= promoItem.title %>
-                    </h2>
-                    <p class="promo-details-item-desc">
-                        <%= promoItem.description %>
-                    </p>
-                    <div class="promo-button-container">
-                        <button class="button-primary button-sm" id="viewPromo" data-link="<%= promoItem.link%>">View</button>
+            <% if (promoItem) { %>
+                <div id="featuredPromo" class="promo flex-container-row">
+                    <img class="promo-image" src="<%= promoItem.img%>" alt="Featured Promotional Item Image"/>
+                    <div class="promo-details-container flex-container-col">
+                        <h2 class="header-lg text-center">
+                            <%= promoItem.title %>
+                        </h2>
+                        <p class="promo-details-item-desc">
+                            <%= promoItem.description %>
+                        </p>
+                        <div class="promo-button-container">
+                            <button class="button-primary button-sm" id="viewPromo" data-link="<%= promoItem.link%>">View</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <% } %>
             <!--About Us section-->
             <article id="aboutUs" class="flex-container-col">
                 <h2 class="header-md text-center">What is Boxed Eats?</h2>

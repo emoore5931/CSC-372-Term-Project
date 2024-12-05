@@ -4,19 +4,28 @@ const adminModel = require("../model/admin.model.js");
 const config = require("../../config/config.js");
 
 function homePage(req, res, next) {
-    const samplePromo = {
-        title: "Sample Promo",
-        description: "This is a sample promo item.",
-        link: "/be/product/-1/info",
-        img: "/img/stock-photos/temp_promo.jpg"
-    };
+    const promoItem = {
+        img: "",
+        title: "Sample Product",
+        description: "This is a sample product.",
+        link: "/be/product/-1/info"
+    }
+
+    const data = model.getPromoProduct();
+    console.log(data);
+    if (data) {
+        if (data.productData.name) promoItem.title = data.productData.name;
+        if (data.productData.description) promoItem.description = data.productData.description;
+        if (data.kitImages.length > 0) promoItem.img = data.kitImages[0].url;
+        if (data.productData.ID) promoItem.link = `/be/product/${data.productData.ID}/info`;
+    }
 
     try {
         res.render("index", {
             title: "Boxed Eats - Home",
             scripts: config.INDEX_SCRIPTS,
             stylesheets: config.INDEX_STYLES,
-            promoItem: samplePromo,
+            promoItem: promoItem,
         });
     } catch (error) {
         console.error(error);

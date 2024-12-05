@@ -1,47 +1,6 @@
 "use strict";
 const db = require("./db-conn");
-
-function KitImage(kitID, description, url, width, height) {
-    this.kitID = kitID;
-    this.description = description;
-    this.url = url;
-    this.width = width;
-    this.height = height;
-}
-
-function KitData(productData, mealKitData, kitImages, discountType) {
-    this.productData = productData;
-    this.mealKitData = mealKitData;
-    this.kitImages = kitImages;
-    this.discountType = discountType;
-}
-
-function MealKit(productID, categoryID, contents, allergens) {
-    this.productID = productID;
-    this.categoryID = categoryID;
-    this.contents = contents;
-    this.allergens = allergens;
-}
-
-function Product(id, name, price, description, featured) {
-    this.id = id;
-    this.name = name;
-    this.price = price;
-    this.description = description;
-    this.featured = featured;
-}
-
-function DiscountType(id, type, amount) {
-    this.id = id;
-    this.type = type;
-    this.amount = amount;
-}
-
-function DiscountData(discountType, creationTimestamp, expirationTimestamp) {
-    this.discountType = discountType;
-    this.expirationTimestamp = expirationTimestamp;
-    this.creationTimestamp = creationTimestamp;
-}
+const kitDOM = require("./dom/kit.dom")
 
 function getKitImages(kitID) {
     return db.all("SELECT * FROM Kit_Images WHERE kitID = ?", kitID);
@@ -57,7 +16,7 @@ function getKitData(kitID) {
     const productData = getProduct(mealKit.productID);
     const discountData = getDiscountDataForKit(kitID);
 
-    return new KitData(productData, mealKit, kitImages, discountData);
+    return new kitDOM.KitData(productData, mealKit, kitImages, discountData);
 }
 
 function getAllKits() {
@@ -127,8 +86,6 @@ function uploadMealKit(mealKit) {
 
 
 module.exports = {
-    KitImage,
-    KitData,
     uploadKitImage,
     uploadKitData,
     uploadProduct,

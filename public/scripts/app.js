@@ -4,6 +4,7 @@ const navSideRef = document.getElementById("navSide");
 const extendNavRef = document.getElementById("extendNavButton");
 const dismissNavRef = document.getElementById("dismissNavSide");
 const cartNavBttnRef = document.getElementById("cartNavBttn");
+const signOutBttnRef = document.getElementById("signOut");
 const navSideIsExtended = false;
 
 extendNavRef.addEventListener("click", sideNavControl);
@@ -22,3 +23,4 @@ homeBttnRef.addEventListener("click", () => {this.window.location.href = "/"});
 storeBttnRef.addEventListener("click", () => {this.window.location.href = "/be/kits/store"});
 accountBttnRef.addEventListener("click", () => {this.window.location.href = "/be/login"});
 cartNavBttnRef.addEventListener("click", () => {window.location.href = "/be/cart"});
+signOutBttnRef.addEventListener("click", () => {window.location.href = "/be/logout"});

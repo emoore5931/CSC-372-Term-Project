@@ -18,6 +18,8 @@ router.get("/", controller.homePage);
 
 router.get("/login", controller.login);
 
+router.get("/logout", controller.signOut);
+
 router.get("/kits/store", controller.store);
 
 router.get("/product/:id/info", controller.productInfo);
