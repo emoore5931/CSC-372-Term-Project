@@ -2,25 +2,53 @@
 <%- include('./../partials/nav') %>
 
 <main>
-    <h2 id="productNameTitle">Example Product</h2>
-    <p>Edit Data:</p>
+    <h2 id="productNameTitle"><%= productData.productData.name %></h2>
+    <h3>Edit Data:</h3>
     <div id="editFieldsContainer">
-    <label for="productNameEdit">Name:</label>
-    <input id="productNameEdit" type="text" placeholder="Example Product"/> 
-    <br>
-    <label for="groupID">Group ID:</label>
-    <input id="groupID" type="number" placeholder="0"/>
-    <br>
-    <label for="imagePath">Image Path:</label>
-    <input id="imagePath" type="text" placeholder="./example"/>
-    <br>
-    <label for="description">Description:</label>
-    <input id="description" type="text" placeholder="Example description."/>
-    <br>
-    <label for="cost">Cost:</label>
-    <input id="cost" type="text" placeholder="$0.00"/>
+        <label for="productNameEdit">Name:</label>
+        <input id="productNameEdit" type="text" value="<%= productData.productData.name %>"/> 
+        <br>
+        <label for="categoryID">Category ID:</label>
+        <input id="categoryID" type="number" value="<%= productData.mealKitData.categoryID %>"/>
+        <br>
+        <label for="isFeatured">Is Featured:</label>
+        <input id="isFeatured" name="isFeatured" type="checkbox" value="featured" <% if (productData.productData.featured) { %> checked <% } %>/>
+        <br>
+        <label for="description">Description:</label>
+        <input id="description" type="text" value="<%= productData.productData.description %>"/>
+        <br>
+        <label for="price">Price:</label>
+        <input id="price" type="text" value="<%= productData.productData.price %>"/>
+        <br>
+        <label for="contents">Contents:</label>
+        <textarea id="contents" rows="4" cols="50"><%= productData.mealKitData.contents %></textarea>
+        <br>
+        <label for="allergens">Allergens:</label>
+        <textarea id="allergens" rows="4" cols="50"><%= productData.mealKitData.allergens %></textarea>
+        <br><br>
+        <h4>Edit Images:</h4>
+        <% productData.kitImages.forEach((img) => { %>
+            <div id="image<%= img.ID %>" class="image-edit-container" style="margin-top: 0;">
+                <p>Image <%= img.ID %></p>
+                <br>
+                <label for="imageDescription">Description:</label>
+                <input id="imageDescription" class="image-desc" type="text" value="<%= img.description %>"/>
+                <br>
+                <label for="imageURL">URL:</label>
+                <input id="imageURL" class="image-url" type="text" value="<%= img.url %>"/>
+                <br>
+                <label for="imageWidth">Width:</label>
+                <input id="imageWidth" class="image-w" type="number" value="<%= img.width %>"/>
+                <br>
+                <label for="imageHeight">Height:</label>
+                <input id="imageHeight" class="image-h" type="number" value="<%= img.height %>"/>
+                <br>
+                <button class="remove-image" data-id="<%= img.ID %>">Remove Image</button>
+                <br>
+            </div>
+        <% }); %>
     </div>
-    <button id="submitChanges">Submit Changes</button>
+    <button id="submitChanges" data-id="<%= productData.productData.ID %>">Submit Changes</button>
 </main>
 
 <%- include('./../partials/footer') %>

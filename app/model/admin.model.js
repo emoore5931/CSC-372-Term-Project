@@ -13,7 +13,7 @@ function getMealKit(kitID) {
 function getKitData(kitID) {
     const mealKit = getMealKit(kitID);
     const kitImages = getKitImages(kitID);
-    const productData = getProduct(mealKit.productID);
+    const productData = getProduct(kitID);
     const discountData = getDiscountDataForKit(kitID);
 
     return new kitDOM.KitData(productData, mealKit, kitImages, discountData);
@@ -90,5 +90,6 @@ module.exports = {
     uploadKitData,
     uploadProduct,
     uploadMealKit,
-    getAllKitData
+    getAllKitData,
+    getKitData
 };

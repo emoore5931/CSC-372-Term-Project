@@ -1,12 +1,14 @@
 /*
   Name: Ethan Moore
-  Date: 10.16.2024
+  Date: 12.4.2024
   CSC 372-01
 
-  Script for the admin-products.html.
+  Script for the admin-products.ejs.
 */
 
-let optionsContainerRefs = document.getElementsByClassName("option-container");
+const editProductOptions = document.querySelectorAll('.edit-option');
+const archiveProductOptions = document.querySelectorAll('.archive-option');
+const deleteProductOptions = document.querySelectorAll('.delete-option');
 
 initOptionFunctionality();
 
@@ -14,13 +16,10 @@ initOptionFunctionality();
  * Initializes the functionality for product option buttons.
  */
 function initOptionFunctionality() {
-    for (let i=0; i < optionsContainerRefs.length; i++) {
-        optionsContainerRefs.item(i).childNodes.forEach(
-            (button) => {button.addEventListener("click", () => {
-                //temporary functionality
-                //develop furthur once backend is developed
-                editProductRedirect(0);
-            });
+    for (let option of editProductOptions) {
+        const productId = option.dataset.id;
+        option.addEventListener('click', () => {
+            editProductRedirect(productId);
         });
     }
 }
@@ -31,10 +30,10 @@ function initOptionFunctionality() {
  * @param {number} productNumber 
  */
 function editProductRedirect(productNumber) {
-    if (productNumber == 0) {
+    if (productNumber == -1) {
         //direct to example product edit page
         window.location.href = "/be/admin/edit";
     }
 
-    //further develop once backend functionality is developed
+    window.location.href = `/be/admin/edit/${productNumber}`;
 }

@@ -133,11 +133,15 @@ function adminUpload(req, res, next) {
 }
 
 function adminEdit(req, res, next) {
+    const productId = req.params.id;
+    const productData = adminModel.getKitData(productId);
+
     try {
         res.render("admin/product-edit/product-edit", {
             title: "Product Edit",
             scripts: config.ADMIN_EDIT_SCRIPTS,
             stylesheets: config.ADMIN_EDIT_STYLES,
+            productData: productData
         });
     } catch (error) {
         console.error(error);

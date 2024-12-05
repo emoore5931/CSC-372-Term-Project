@@ -32,7 +32,7 @@ router.get("/admin/products", controller.adminProducts);
 
 router.get("/admin/upload", controller.adminUpload);
 
-router.get("/admin/edit", controller.adminEdit);
+router.get("/admin/edit/:id", controller.adminEdit);
 
 router.get("/admin/sign-out", controller.signOut);
 

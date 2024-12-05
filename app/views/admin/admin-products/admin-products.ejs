@@ -23,9 +23,9 @@
                 <div><%= product.productData.description %></div>
                 <div><%= product.productData.price %></div>
                 <div class="option-container">
-                    <button><i class="fa-solid fa-pen"></i></button>
-                    <button><i class="fa-solid fa-box-archive"></i></button>
-                    <button><i class="fa-solid fa-trash"></i></button>
+                    <button class="edit-option" data-id="<%= product.productData.ID %>"><i class="fa-solid fa-pen"></i></button>
+                    <button class="archive-option" data-id="<%= product.productData.ID %>"><i class="fa-solid fa-box-archive"></i></button>
+                    <button class="remove-option" data-id="<%= product.productData.ID %>"><i class="fa-solid fa-trash"></i></button>
                 </div>
             <% }); %>
         </div>
