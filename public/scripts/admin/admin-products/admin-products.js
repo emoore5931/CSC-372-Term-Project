@@ -8,7 +8,7 @@
 
 const editProductOptions = document.querySelectorAll('.edit-option');
 const archiveProductOptions = document.querySelectorAll('.archive-option');
-const deleteProductOptions = document.querySelectorAll('.delete-option');
+const deleteProductOptions = document.querySelectorAll('.remove-option');
 
 initOptionFunctionality();
 
@@ -20,6 +20,13 @@ function initOptionFunctionality() {
         const productId = option.dataset.id;
         option.addEventListener('click', () => {
             editProductRedirect(productId);
+        });
+    }
+
+    for (let option of deleteProductOptions) {
+        const productId = option.dataset.id;
+        option.addEventListener('click', () => {
+            removeProduct(productId);
         });
     }
 }
@@ -36,4 +43,22 @@ function editProductRedirect(productNumber) {
     }
 
     window.location.href = `/be/admin/edit/${productNumber}`;
+}
+
+function removeProduct(productID) {
+    fetch(`/be/admin/remove-kit/${productID}`, {
+        method: "DELETE"
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        alert("Product removed successfully.");
+    })
+    .then(data => {
+        window.location.reload();
+    })
+    .catch(error => {
+        console.error(error);
+    });
 }

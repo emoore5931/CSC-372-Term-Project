@@ -1,0 +1,27 @@
+{
+  "kitData": [
+    {
+      "productData": {
+        "name": "test product",
+        "price": 100,
+        "description": "test description",
+        "featured": 0
+      },
+      "mealKitData": {
+        "categoryID": "1",
+        "contents": "1.5kg of chicken, 1kg of rice, 500g of vegetables",
+        "allergens": "None"
+      },
+      "kitImages": [  
+        {
+            "description": "sample image",
+            "url": "https://picsum.photos/seed/seed/200/300"
+        },
+        {
+            "description": "sample image 2",
+            "url": "/img/stock-photos/temp_promo.jpg"
+        }
+      ]
+    }
+  ]
+}

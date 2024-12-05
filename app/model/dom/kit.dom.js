@@ -20,7 +20,7 @@ function MealKit(productID, categoryID, contents, allergens) {
  * 
  * @param {productDOM.Product} productData 
  * @param {MealKit} mealKitData 
- * @param {KitImage} kitImages 
+ * @param {KitImage[]} kitImages 
  * @param {discountDOM.DiscountType} discountType 
  */
 function KitData(productData, mealKitData, kitImages, discountType) {

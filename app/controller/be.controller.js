@@ -103,6 +103,7 @@ function cart(req, res, next) {
 
 function adminProducts(req, res, next) {
     const products = adminModel.getAllKitData();
+    console.log(products);
 
     try {
         res.render("admin/admin-products/admin-products", {
@@ -238,6 +239,19 @@ function upload(req, res, next) {
         });
     }
 
+    if (data.kitData) {
+        data.kitData.forEach((kitData) => {
+            try {
+                adminModel.uploadKitData(kitData);
+                uploadStatus.isSuccessful = true;
+            } catch (error) {
+                console.error(error);
+                uploadStatus.errAt = `Kit data upload failed for '${kitData.productData.name}'`;
+                uploadStatus.err = error.toString();
+                res.status(500).send(uploadStatus);
+            }
+        });
+    }
 
     res.status(200).send(uploadStatus);
     console.log("Upload complete.");
@@ -256,6 +270,32 @@ function signOut(req, res, next) {
     // }
 }
 
+function removeImage(req, res, next) {
+    const imageID = req.params.id;
+
+    try {
+        adminModel.deleteImage(imageID);
+        res.status(200).send("Image removed successfully.");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+function removeKit(req, res, next) {
+    const kitID = req.params.id;
+
+    try {
+        adminModel.deleteKitData(kitID);
+        res.status(200).send("Kit removed successfully.");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
 module.exports = {
     homePage,
     login,
@@ -266,5 +306,7 @@ module.exports = {
     adminEdit,
     productInfo,
     upload,
-    signOut
+    signOut,
+    removeImage,
+    removeKit
 };

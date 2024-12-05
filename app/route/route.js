@@ -38,4 +38,8 @@ router.get("/admin/sign-out", controller.signOut);
 
 router.post("/admin/upload", controller.upload);
 
+router.delete("/admin/remove-image/:id", controller.removeImage);
+
+router.delete("/admin/remove-kit/:id", controller.removeKit);
+
 module.exports = router;

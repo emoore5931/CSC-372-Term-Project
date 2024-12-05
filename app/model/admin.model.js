@@ -60,18 +60,21 @@ function getProduct(productID) {
 function uploadKitData(kitData) {   
     const productID = uploadProduct(kitData.productData);
     kitData.mealKitData.productID = productID; 
-    kitData.kitImages.kitID = productID;
+    kitData.kitImages.forEach((image) => {
+        image.kitID = productID;
+    });
 
     uploadMealKit(kitData.mealKitData);
-    uploadKitImage(kitData.kitImages);
+    kitData.kitImages.forEach((image) => {
+        uploadKitImage(image);
+    });
 }
 
 function uploadProduct(product) {
     if (!product.featured || product.featured > 1 || product.featured < 0) { product.featured = 0; }
 
-    db.run("INSERT INTO Products (name, price, description, featured) VALUES (?, ?, ?, ?)",
-        product.name, product.price, product.description, product.featured);
-    return db.exec("SELECT ID FROM Products ORDER BY ID DESC LIMIT 1");
+    return db.run("INSERT INTO Products (name, price, description, featured) VALUES (?, ?, ?, ?)",
+        product.name, product.price, product.description, product.featured).lastInsertRowid;
 }
 
 function uploadKitImage(kitImage) {
@@ -84,6 +87,16 @@ function uploadMealKit(mealKit) {
         mealKit.productID, mealKit.categoryID, mealKit.contents, mealKit.allergens);
 }
 
+function deleteImage(imageID) {
+    return db.run("DELETE FROM Kit_Images WHERE ID = ?", imageID);
+}
+
+function deleteKitData(productID) {
+    db.run("DELETE FROM Kit_Images WHERE kitID = ?", productID);
+    db.run("DELETE FROM Meal_Kits WHERE productID = ?", productID);
+    db.run("DELETE FROM Products WHERE ID = ?", productID);
+}
+
 
 module.exports = {
     uploadKitImage,
@@ -91,5 +104,7 @@ module.exports = {
     uploadProduct,
     uploadMealKit,
     getAllKitData,
-    getKitData
+    getKitData,
+    deleteImage,
+    deleteKitData
 };

@@ -50,6 +50,19 @@ function submitChanges(id) {
 }
 
 function removeImage(id) {
-    // todo:
-    // Remove image from database
+    fetch(`/be/admin/remove-image/${id}`, {
+        method: "DELETE"    
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error("There was a problem with your fetch operation:", error);
+    });
 }
