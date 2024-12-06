@@ -6,6 +6,18 @@ function getMealKits() {
     return db.all("SELECT * FROM Meal_Kits");
 }
 
+function getKitDataByProductName(productName) {
+    const productDataList = db.all(`SELECT * FROM Products WHERE name LIKE '%${productName}%'`);
+    if (!productDataList) {
+        return null;
+    }
+    const kitDataList = [];
+    productDataList.forEach((productData) => {
+        kitDataList.push(getKitData(productData.ID));
+    });
+    return kitDataList;
+}
+
 function getKitData(kitID) {
     const mealKit = getMealKit(kitID);
     const kitImages = getKitImages(kitID);
@@ -108,6 +120,8 @@ function clearCart(userID) {
     db.run("DELETE FROM Shopping_Cart_Items WHERE userID = ?", userID);
 }
 
+
+
 module.exports = {
     getPromoProduct,
     getAllKitData,
@@ -118,5 +132,6 @@ module.exports = {
     getUserShoppingCart,
     addProductToCart,
     removeProductFromCart,
-    clearCart
+    clearCart,
+    getKitDataByProductName
 };

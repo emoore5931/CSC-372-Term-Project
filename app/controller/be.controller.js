@@ -84,8 +84,46 @@ function store(req, res, next) {
             scripts: config.STORE_SCRIPTS,
             stylesheets: config.STORE_STYLES,
             kitList: kitList,
-            featuredLimit: 3,
-            kitLimit: 20
+            featuredLimit: config.STORE_FEATURED_LIM,
+            kitLimit: config.STORE_KIT_LIM
+        });
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+function kitsByProductName(req, res, next) {    
+    const retrievedKitDataList = model.getKitDataByProductName(req.params.productName);
+
+    //extract necessary data
+    const kitList = [];
+    if (retrievedKitDataList && retrievedKitDataList.length > 0) {
+        retrievedKitDataList.forEach((kitData) => {
+            const kit = {
+                id: kitData.productData.ID,
+                title: kitData.productData.name,
+                description: kitData.productData.description,
+                isDiscounted: kitData.discountData ? true : false,
+                price: kitData.productData.price,
+                discountPrice: kitData.discountData ? calculateDiscount(kitData.productData.price) : null,
+                img: kitData.kitImages.length > 0 ? kitData.kitImages[0].url : "",
+                isFeatured: kitData.productData.featured ? true : false
+            }
+
+            kitList.push(kit);
+        });
+    }
+
+    try {
+        res.render("products/products", {
+            title: "Boxed Eats - Kits",
+            scripts: config.STORE_SCRIPTS,
+            stylesheets: config.STORE_STYLES,
+            kitList: kitList,
+            featuredLimit: config.STORE_FEATURED_LIM,
+            kitLimit: config.STORE_KIT_LIM
         });
     } catch (error) {
         console.error(error);
@@ -450,6 +488,57 @@ function clearCart(req, res, next) {
     }
 }
 
+function editProduct(req, res, next) {
+    const data = req.body;
+
+    if (!data) {
+        res.status(400).send("Invalid data.");
+        return;
+    }
+
+    try {
+        adminModel.updateKitData(data);
+        res.status(200).send("Product updated successfully.");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+
+}
+
+function newKit(req, res, next) {
+    try {
+        res.render("admin/new-kit/new-kit", {
+            title: "New Kit",
+            scripts: config.NEW_KIT_SCRIPTS,
+            stylesheets: config.NEW_KIT_STYLES
+        });
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+function uploadKit(req, res, next) {
+    const data = req.body;
+
+    if (!data) {
+        res.status(400).send("Invalid data.");
+        return;
+    }
+
+    try {
+        adminModel.uploadKitData(data);
+        res.status(200).send("Kit uploaded successfully.");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
 module.exports = {
     homePage,
     loginPage,
@@ -467,5 +556,9 @@ module.exports = {
     signUp,
     addProductToCart,
     removeProductFromCart,
-    clearCart
+    clearCart,
+    editProduct,
+    newKit,
+    uploadKit,
+    kitsByProductName
 };

@@ -22,6 +22,9 @@ function initNavButtons() {
             window.location.href = "/be/admin/upload";
         });
         buttons.item(2).addEventListener("click", () => {
+            window.location.href = "/be/admin/kits/new";
+        });
+        buttons.item(3).addEventListener("click", () => {
             window.location.replace("/be/admin/sign-out");
         });
     }

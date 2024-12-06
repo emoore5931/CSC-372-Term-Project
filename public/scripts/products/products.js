@@ -15,6 +15,8 @@ const allKitsPrevRef = document.getElementById("allKitsPrevious");
 const allKitsNextRef = document.getElementById("allKitsNext");
 const productAddBttnList = document.getElementsByClassName("add-to-cart");
 const modalAddBttnRef = document.getElementById("modalAddToCart");
+const searchbarRef = document.getElementById("searchbar");
+const searchbarBttnRef = document.getElementById("searchbarSubmit");
 
 const featuredDealsManager = {
     index: 0,
@@ -29,6 +31,7 @@ const allKitsManager = {
 let currentModalProductID = 0;
 
 cartIconBttnRef.addEventListener("click", () => {window.location.href = "/be/cart"});
+searchbarBttnRef.addEventListener("click", () => {window.location.href = `/be/kits/store/${searchbarRef.value}`});
 
 function Kit(kitId, kitTitle, kitDesc, kitPrice, kitImg, isDiscounted, discountPrice) {
     this.id = kitId;

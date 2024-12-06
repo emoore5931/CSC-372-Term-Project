@@ -1,0 +1,52 @@
+<%- include('./../partials/header') %>
+<%- include('./../partials/nav') %>
+
+<main>
+    <h2>Create New Product</h2>
+    <h3>Edit Data:</h3>
+    <div id="editFieldsContainer">
+        <label for="productNameEdit">Name:</label>
+        <input id="productNameEdit" type="text"/> 
+        <br>
+        <label for="categoryID">Category ID:</label>
+        <input id="categoryID" type="number"/>
+        <br>
+        <label for="isFeatured">Is Featured:</label>
+        <input id="isFeatured" name="isFeatured" type="checkbox" value="featured"/>
+        <br>
+        <label for="price">Price:</label>
+        <input id="price" type="text"/>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" rows="4" cols="50"></textarea>
+        <br>
+        <label for="contents">Contents:</label>
+        <textarea id="contents" rows="4" cols="50"></textarea>
+        <br>
+        <label for="allergens">Allergens:</label>
+        <textarea id="allergens" rows="4" cols="50"></textarea>
+        <br><br>
+        <!-- <h4>Edit Images:</h4>
+            <div id="image" class="image-edit-container" style="margin-top: 0;">
+                <p>Image</p>
+                <br>
+                <label for="imageDescription">Description:</label>
+                <input id="imageDescription" class="image-desc" type="text" value=""/>
+                <br>
+                <label for="imageURL">URL:</label>
+                <input id="imageURL" class="image-url" type="text" value=""/>
+                <br>
+                <label for="imageWidth">Width:</label>
+                <input id="imageWidth" class="image-w" type="number" value=""/>
+                <br>
+                <label for="imageHeight">Height:</label>
+                <input id="imageHeight" class="image-h" type="number" value=""/>
+                <br>
+                <button class="remove-image" data-id="">Remove Image</button>
+                <br>
+            </div> -->
+    </div>
+    <button id="submitChanges">Submit Changes</button>
+</main>
+
+<%- include('./../partials/footer') %>

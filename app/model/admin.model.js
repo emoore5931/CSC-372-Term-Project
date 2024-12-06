@@ -101,6 +101,29 @@ function userIsAdmin(userID) {
     return db.get("SELECT * FROM Users WHERE ID = ? AND userTypeID = ?", userID, 1) ? true : false;
 }
 
+function updateKitData(kitData) {
+    const productID = kitData.productData.ID;
+    updateProduct(kitData.productData);
+    updateMealKit(kitData.mealKitData);
+    kitData.kitImages.forEach((image) => {
+        updateKitImage(image);
+    });
+}
+
+function updateProduct(product) {
+    db.run("UPDATE Products SET name = ?, price = ?, description = ?, featured = ? WHERE ID = ?",
+        product.name, product.price, product.description, product.featured, product.ID);
+}
+
+function updateMealKit(mealKit) {
+    db.run("UPDATE Meal_Kits SET categoryID = ?, contents = ?, allergens = ? WHERE productID = ?",
+        mealKit.categoryID, mealKit.contents, mealKit.allergens, mealKit.productID);
+}
+
+function updateKitImage(kitImage) {
+    db.run("UPDATE Kit_Images SET description = ?, url = ?, width = ?, height = ? WHERE ID = ?",
+        kitImage.description, kitImage.url, kitImage.width, kitImage.height, kitImage.ID);
+}
 
 module.exports = {
     uploadKitImage,
@@ -111,5 +134,6 @@ module.exports = {
     getKitData,
     deleteImage,
     deleteKitData,
-    userIsAdmin
+    userIsAdmin,
+    updateKitData
 };
