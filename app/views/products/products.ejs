@@ -62,7 +62,7 @@
                     <% } %>
                     <div class="flex-container-row">
                         <button class="icon-button" onclick="displayProductModal(new Kit('<%= kit.id %>', '<%= kit.title %>', '<%= kit.description %>', '<%= kit.price %>', '<%= kit.img %>', '<%= kit.isDiscounted %>', '<%= kit.discountPrice %>'))"><i class="fa-regular fa-eye"></i></button>
-                        <button class="icon-button"><i class="fa-solid fa-square-plus"></i></button>
+                        <button class="icon-button add-to-cart" data-id="<%= kit.id %>><i class="fa-solid fa-square-plus"></i></button>
                     </div>
                 </div>
                 <% elementCount++; %>
@@ -86,7 +86,7 @@
                     <div id="productModalButtonContainer" class="flex-container-row">
                         <button id="moreInfo" class="button-primary">More Info</button>
                         <button class="button-primary">Add to Wishlist</button>
-                        <button class="button-primary">Add to Cart</button>
+                        <button id="modalAddToCart" class="button-primary" data-id="">Add to Cart</button>
                     </div>
                 </div>
             </div>

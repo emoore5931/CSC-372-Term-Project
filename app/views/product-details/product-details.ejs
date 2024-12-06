@@ -7,11 +7,11 @@
         <div id="selectedImgDisplayContainer">
             <button id="previousImage" class="icon-button"><i class="fa-solid fa-angle-left"></i></button>
             <button id="nextImage" class="icon-button"><i class="fa-solid fa-angle-right"></i></button>
-            <img id="selectedImgDisplay" alt="Selected product image" src="<%= product.images[0] %>" current-image-id="galleryImage1"/>
+            <img id="selectedImgDisplay" alt="Selected product image" src="<%= product.images[0].url %>" current-image-id="galleryImage1"/>
         </div>
         <div id="imgGallery" class="flex-container-col">
             <% product.images.forEach((img) => { %>
-                <img class="gallery-image" src="<%= img %>" alt="Product Image"/>
+                <img class="gallery-image" src="<%= img.url %>" alt="<%= img.description %>"/>
             <% }); %>
         </div>
     </div>

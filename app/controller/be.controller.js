@@ -12,7 +12,6 @@ function homePage(req, res, next) {
     }
 
     const data = model.getPromoProduct();
-    console.log(data);
     if (data) {
         if (data.productData.name) promoItem.title = data.productData.name;
         if (data.productData.description) promoItem.description = data.productData.description;
@@ -34,7 +33,17 @@ function homePage(req, res, next) {
     }
 }
 
-function login(req, res, next) {
+function loginPage(req, res, next) {
+    if (req.cookies.auth) {
+        let id = req.cookies.auth;
+        if (adminModel.userIsAdmin(id)) {
+            res.redirect("/be/admin");
+            return;
+        }
+        res.redirect("/be/cart");
+        return;
+    }
+
     try {
         res.render("account-login/login", {
             title: "Boxed Eats - User Login",
@@ -51,7 +60,6 @@ function login(req, res, next) {
 function store(req, res, next) {
 
     const retrievedKitDataList = model.getAllKitData();
-    console.log(retrievedKitDataList);
 
     //extract necessary data
     const kitList = [];
@@ -67,7 +75,6 @@ function store(req, res, next) {
             isFeatured: kitData.productData.featured ? true : false
         }
 
-        console.log(kit);
         kitList.push(kit);
     });
 
@@ -88,22 +95,37 @@ function store(req, res, next) {
 }
 
 function cart(req, res, next) {
-    const sampleCartProducts = [{
-        id: -1,
-        title: "Sample Product",
-        price: 99.99,
-        img: "",
-        isDiscounted: true,
-        discountedPrice: 39.99,
-        quantity: 1
-    }];
+    if (!req.cookies.auth) {
+        res.redirect("/be/login");
+        return;
+    }
+
+    const userID = req.cookies.auth;
+    const cartProducts = model.getUserShoppingCart(userID);
+    const productList = [];
+
+    cartProducts.forEach((product) => {
+        const kitData = model.getKitData(product.productID);
+
+        const cartProduct = {
+            id: product.productID,
+            quantity: product.quantity,
+            title: kitData.productData.name,
+            price: kitData.productData.price,
+            img: kitData.kitImages.length > 0 ? kitData.kitImages[0].url : "",
+            isDiscounted: kitData.discountData ? true : false,
+            discountedPrice: kitData.discountData ? calculateDiscount(kitData.productData.price) : null
+        }
+
+        productList.push(cartProduct);
+    });
 
     try {
         res.render("cart/cart", {
             title: "Boxed Eats - Cart",
             scripts: config.CART_SCRIPTS,
             stylesheets: config.CART_STYLES,
-            productList: sampleCartProducts
+            productList: productList
         });
     } catch (error) {
         console.error(error);
@@ -114,7 +136,6 @@ function cart(req, res, next) {
 
 function adminProducts(req, res, next) {
     const products = adminModel.getAllKitData();
-    console.log(products);
 
     try {
         res.render("admin/admin-products/admin-products", {
@@ -163,21 +184,24 @@ function adminEdit(req, res, next) {
 }
 
 function productInfo(req, res, next) {
-    const sampleProduct = {
-        id: -1,
-        title: "Bento Box Kit",
-        description: "This is a sample product.",
-        price: 39.99,
-        images: ["/img/stock-photos/temp_promo.jpg"],
-        isDiscounted: true,
-        contents: ["Salmon Rice Balls with a side of carrots", "Bulgolgi Beef with a side of eggs"],
-        allergens: ["Fish", "Soy", "Wheat"]
+    const id = req.params.id;
+    const kitData = model.getKitData(id);
+
+    //extract necessary data
+    const productData = {
+        id: kitData.productData.ID,
+        title: kitData.productData.name,
+        images: kitData.kitImages,
+        price: kitData.productData.price,
+        description: kitData.productData.description,
+        contents: kitData.mealKitData.contents.split(", "),
+        allergens: kitData.mealKitData.allergens.split(","),
     };
 
     try {
         res.render("product-details/product-details", {
-            title: `Boxed Eats - ${sampleProduct.title}`,
-            product: sampleProduct,
+            title: `Boxed Eats - ${productData.title}`,
+            product: productData,
             scripts: config.PRODUCT_DETAILS_SCRIPTS,
             stylesheets: config.PRODUCT_DETAILS_STYLES
         });
@@ -268,17 +292,73 @@ function upload(req, res, next) {
     console.log("Upload complete.");
 }
 
-function signOut(req, res, next) {
-    res.redirect("/"); //temp redirect
+function signUp(req, res, next) {
+    const data = req.body;
+    console.log(`Received data: ${JSON.stringify(data)}`);
 
-    // try {
-    //     res.clearCookie("auth");
-    //     res.redirect("/be/login");
-    // } catch (error) {
-    //     console.error(error);
-    //     next(error);
-    //     res.status(500).send("Internal Server Error");
-    // }
+    if (!data) {
+        res.status(400).send("Invalid data.");
+        return;
+    }
+
+    if (model.userExists(data.username)) {
+        res.status(409).send("Username already exists.");
+        return;
+    }
+
+    try {
+        model.newUser(data);
+        res.status(200).send("User created successfully.");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+function login(req, res, next) {
+    const data = req.body;
+    const requestStatus = {
+        isSuccessful: false,
+        err: "",
+        isAdmin: false
+    }
+
+
+    if (!data) {
+        requestStatus.err = "Invalid data.";
+        res.status(400).send(requestStatus);
+        return;
+    }
+
+    const user = model.getUserFromLogin(data.username, data.password);
+
+    if (!user) {
+        requestStatus.err = "Invalid login credentials.";
+        res.status(401).send("Invalid login credentials.");
+        return;
+    }
+
+    if (user.userTypeID === 1 || adminModel.userIsAdmin(user.ID)) {
+        requestStatus.isAdmin = true;
+    }
+    
+    requestStatus.isSuccessful = true;
+
+    res.setHeader('Content-Type', 'application/json');
+    res.cookie("auth", user.ID, { maxAge: 3600000, httpOnly: true });
+    res.status(200).send(JSON.stringify(requestStatus));
+}
+
+function signOut(req, res, next) {
+    try {
+        res.clearCookie("auth");
+        res.redirect("/be/login");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
 }
 
 function removeImage(req, res, next) {
@@ -307,9 +387,72 @@ function removeKit(req, res, next) {
     }
 }
 
+function addProductToCart(req, res, next) {
+    if (!req.cookies.auth) {
+        res.status(401).send("Unauthorized");
+        return;
+    }
+    const data = req.body;
+    const userID = req.cookies.auth;
+
+    if (!data) {
+        res.status(400).send("Invalid data.");
+        return;
+    }
+
+    try {
+        model.addProductToCart(userID, data.productID, data.quantity);
+        res.status(200).send("Product added to cart successfully.");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+function removeProductFromCart(req, res, next) {
+    if (!req.cookies.auth) {
+        res.redirect("/be/login");
+        return;
+    }
+    const productID = req.body.productID;
+    const userID = req.cookies.auth;
+
+    if (!productID) {
+        res.status(400).send("Invalid data.");
+        return;
+    }
+
+    try {
+        model.removeProductFromCart(userID, productID);
+        res.status(200).send("Product removed from cart successfully.");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+function clearCart(req, res, next) {
+    if (!req.cookies.auth) {
+        res.redirect("/be/login");
+        return;
+    }
+    const userID = req.cookies.auth;
+
+    try {
+        model.clearCart(userID);
+        res.status(200).send("Cart cleared successfully.");
+    } catch (error) {
+        console.error(error);
+        next(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
 module.exports = {
     homePage,
-    login,
+    loginPage,
     store,
     cart,
     adminProducts,
@@ -319,5 +462,10 @@ module.exports = {
     upload,
     signOut,
     removeImage,
-    removeKit
+    removeKit,
+    login,
+    signUp,
+    addProductToCart,
+    removeProductFromCart,
+    clearCart
 };

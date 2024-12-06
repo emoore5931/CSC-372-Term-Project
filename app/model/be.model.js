@@ -71,7 +71,52 @@ function getAllKitData() {
     return kitData;
 }
 
+function newUser(userData) {
+    db.run("INSERT INTO Users (username, email, password, userTypeID) VALUES (?, ?, ?, ?)", userData.username, userData.email, userData.password, 2);
+}
+
+function userExists(username) {
+    return db.get("SELECT * FROM Users WHERE username = ?", username) ? true : false;
+}
+
+function getUserFromLogin(username, password) {
+    return db.get("SELECT * FROM Users WHERE username = ? AND password = ?", username, password);
+}
+
+function getUserShoppingCart(userID) {
+    return db.all("SELECT * FROM Shopping_Cart_Items WHERE userID = ?", userID);
+}
+
+function existsInCart(userID, productID) {
+    return db.get("SELECT * FROM Shopping_Cart_Items WHERE userID = ? AND productID = ?", userID, productID) ? true : false;
+}
+
+function addProductToCart(userID, productID, quantity) {
+    if (existsInCart(userID, productID)) {
+        db.run("UPDATE Shopping_Cart_Items SET quantity = ? WHERE userID = ? AND productID = ?", quantity, userID, productID);
+        return;
+    }
+
+    db.run("INSERT INTO Shopping_Cart_Items (userID, productID, quantity) VALUES (?, ?, ?)", userID, productID, quantity);
+}
+
+function removeProductFromCart(userID, productID) {
+    db.run("DELETE FROM Shopping_Cart_Items WHERE userID = ? AND productID = ?", userID, productID);
+}
+
+function clearCart(userID) {
+    db.run("DELETE FROM Shopping_Cart_Items WHERE userID = ?", userID);
+}
+
 module.exports = {
     getPromoProduct,
-    getAllKitData
+    getAllKitData,
+    getKitData,
+    newUser,
+    userExists,
+    getUserFromLogin,
+    getUserShoppingCart,
+    addProductToCart,
+    removeProductFromCart,
+    clearCart
 };

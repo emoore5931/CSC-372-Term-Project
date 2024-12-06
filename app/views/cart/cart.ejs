@@ -17,7 +17,7 @@
                     <input id="productQuantity" type="number" min="1" max="99" value="<%= product.quantity %>">
                     <div>
                         <button class="icon-button changeQuantity" data-product-id="<%= product.id %>"><i class="fa-solid fa-circle-check"></i></button>
-                        <button class="icon-button removeItem"><i class="fa-solid fa-circle-xmark"></i></button>
+                        <button class="icon-button removeItem" data-product-id="<%= product.id %>"><i class="fa-solid fa-circle-xmark"></i></button>
                     </div>
                 </div>
             <% }) %>
@@ -41,9 +41,9 @@
                                 </span> x <span id="product<%= product.id %>SumQuantity"><%= product.quantity %></span>:</p>
                                 <p id="product<%= product.id %>SumTotal">
                                     <% if (product.isDiscounted) { %>
-                                        <%= product.discountedPrice * product.quantity %>
+                                        <%= (product.discountedPrice * product.quantity).toFixed(2) %>
                                     <% } else { %>
-                                        <%= product.price * product.quantity %>
+                                        <%= (product.price * product.quantity).toFixed(2) %>
                                     <% } %>
                                 </p>
                             </div>
@@ -51,7 +51,6 @@
                     <% }) %>
                 </div>
 
-                <!-- todo: implement calculation functionality -->
                 <div id="finalCalculations" class="flex-container-col">
                     <div id="subtotalContainer" class="flex-container-row">
                         <p>Subtotal:</p>

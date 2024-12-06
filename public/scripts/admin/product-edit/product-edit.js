@@ -27,12 +27,12 @@ function submitChanges(id) {
     const newProductData = {
         id: id,
         name: productNameRef.value,
-        description: descriptionRef.value,
+        description: descriptionRef.textContent,
         price: priceRef.value,
         featured: isFeaturedRef.value == "featured" ? 1 : 0,
         categoryID: categoryIDRef.value,
-        contents: contentsRef.value,
-        allergens: allergensRef.value,
+        contents: contentsRef.textContent,
+        allergens: allergensRef.textContent,
         images: []
     }
 

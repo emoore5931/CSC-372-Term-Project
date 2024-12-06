@@ -17,6 +17,7 @@ h2 {
 #productImageGallery {
     width: 95%;
     min-height: 525px;
+    max-height: 65vh;
     padding: 10px;
     margin: auto;
     flex: auto;
@@ -37,6 +38,10 @@ h2 {
 #selectedImgDisplayContainer > button {
     position: absolute;
     top: calc(50% - 100px);
+}
+
+#selectedImgDisplay {
+    max-height: 100%;
 }
 
 #previousImage {

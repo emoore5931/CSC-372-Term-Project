@@ -16,15 +16,25 @@ const controller = require("../controller/be.controller");
 
 router.get("/", controller.homePage);
 
-router.get("/login", controller.login);
+router.get("/login", controller.loginPage);
+
+router.post("/login", controller.login);
 
 router.get("/logout", controller.signOut);
+
+router.post("/signup", controller.signUp);
 
 router.get("/kits/store", controller.store);
 
 router.get("/product/:id/info", controller.productInfo);
 
 router.get("/cart", controller.cart);
+
+router.post("/cart", controller.addProductToCart);
+
+router.delete("/cart", controller.removeProductFromCart);
+
+router.get("/cart/clear", controller.clearCart);
 
 router.get("/admin", controller.adminProducts);
 

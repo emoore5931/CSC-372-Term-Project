@@ -1,6 +1,7 @@
 "use strict";
 const productListRef = document.getElementById("productList");
 const products = productListRef.children;
+const checkoutBttnRef = document.getElementById("checkout");
 
 function calcSubtotal() {
     let subtotal = 0;
@@ -63,14 +64,72 @@ function updateOrderSum(event) {
     if (event) {
         const productId = event.currentTarget.dataset.productId;
         const productCartRef = document.getElementById(`product${productId}`);
-        const productQuantitySumRef = document.getElementById(`product${productId}SumQuantity`);
-        const productTotalSumRef = document.getElementById(`product${productId}SumTotal`);
-        productQuantitySumRef.textContent = productCartRef.querySelector("#productQuantity").value;
-        productTotalSumRef.textContent = `$${(parseFloat(productCartRef.querySelector("#productPrice").textContent.split("$")[1]) * parseInt(productCartRef.querySelector("#productQuantity").value)).toFixed(2)}`;
+        const newQuantity = productCartRef.querySelector("#productQuantity").value;
+        
+        try {
+            fetch('/be/cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    productID: productId,
+                    quantity: newQuantity
+                })
+            }).then((response) => {
+                if (response.status === 401) {
+                    alert("Please log in to update quantity.");
+                    window.location.href = "/be/login";
+                } else if (!response.ok) {
+                    alert("Error updating quantity. Please try again later.");
+                    console.error(response);
+                } else {
+                    alert("Quantity updated successfully.");
+                    window.location.reload();   
+                }
+            });
+        } catch (error) {
+            alert("Error updating quantity. Please try again later.");
+            console.error(error);
+        }
+        // const productCartRef = document.getElementById(`product${productId}`);
+        // const productQuantitySumRef = document.getElementById(`product${productId}SumQuantity`);
+        // const productTotalSumRef = document.getElementById(`product${productId}SumTotal`);
+        // productQuantitySumRef.textContent = newQuantity;
+        // productTotalSumRef.textContent = `$${(parseFloat(productCartRef.querySelector("#productPrice").textContent.split("$")[1]) * parseInt(productCartRef.querySelector("#productQuantity").value)).toFixed(2)}`;
     }
 
     updateTotal(updateSubtotal(), updateSalesTax(), updateDeliveryFee());
     
+}
+
+function removeProduct(event) {
+    const productId = event.currentTarget.dataset.productId;
+    try {
+        fetch('/be/cart', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                productID: productId
+            })
+        }).then((response) => {
+            if (response.status === 401) {
+                alert("Please log in to remove item.");
+                window.location.href = "/be/login";
+            } else if (!response.ok) {
+                alert("Error removing item. Please try again later.");
+                console.error(response);
+            } else {
+                alert("Item removed successfully.");
+                window.location.reload();
+            }
+        });
+    } catch (error) {
+        alert("Error removing item. Please try again later.");
+        console.error(error);
+    }
 }
 
 function initQuantityUpdate() {
@@ -79,7 +138,34 @@ function initQuantityUpdate() {
     }
 }
 
+function initRemoveProduct() {
+    for (let product of products) {
+        product.querySelector(".removeItem").addEventListener("click", removeProduct);
+    }
+}
+
+function checkout() {
+    //temp functionality
+    fetch('/be/cart/clear', {
+        method: 'GET'
+    }).then((response) => {
+        if (response.status === 401) {
+            alert("Please log in to clear cart.");
+            window.location.href = "/be/login";
+        } else if (!response.ok) {
+            alert("Error clearing cart. Please try again later.");
+            console.error(response);
+        } else {
+            alert("Checkout complete!");
+            window.location.reload();
+        }
+    });
+}
+
 // init order sum
 updateOrderSum();
 
 initQuantityUpdate();
+initRemoveProduct();
+
+checkoutBttnRef.addEventListener("click", checkout);

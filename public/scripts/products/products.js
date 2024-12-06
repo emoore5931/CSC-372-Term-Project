@@ -13,6 +13,8 @@ const featuredDealsPrevRef = document.getElementById("featuredDealsPrevious");
 const featuredDealsNextRef = document.getElementById("featuredDealsNext");
 const allKitsPrevRef = document.getElementById("allKitsPrevious");
 const allKitsNextRef = document.getElementById("allKitsNext");
+const productAddBttnList = document.getElementsByClassName("add-to-cart");
+const modalAddBttnRef = document.getElementById("modalAddToCart");
 
 const featuredDealsManager = {
     index: 0,
@@ -23,6 +25,8 @@ const allKitsManager = {
     index: 0,
     limit: parseInt(allKitsContainerRef.dataset.limit),
 };
+
+let currentModalProductID = 0;
 
 cartIconBttnRef.addEventListener("click", () => {window.location.href = "/be/cart"});
 
@@ -62,12 +66,13 @@ function insertModalData(kit) {
         productImageRef.src = kit.img;
         productNameRef.innerText = kit.title;
         productDescRef.innerText = kit.description;
-        console.log(kit.isDiscounted);
         if (kit.isDiscounted == "true") {
             productPriceRef.innerHTML = "<del>$" + kit.price + "</del> <ins>$" + kit.discountPrice + "</ins>";
         } else {
             productPriceRef.innerHTML = "$" + kit.price;
         }
+        modalAddBttnRef.dataset.id = kit.id;
+        currentModalProductID = kit.id;
         moreInfoBttnRef.addEventListener("click", () => {window.location.href = `/be/product/${kit.id}/info`});
     }
 }
@@ -162,5 +167,40 @@ function initPagination() {
     allKitsPrevRef.addEventListener("click", () => { viewPrevious(allKitsContainerRef, allKitsManager) });
 }
 
+function initProductAdd() {
+    modalAddBttnRef.addEventListener("click", (event) => {
+        addToCart(currentModalProductID);
+    });
+
+    for (let addBttn of productAddBttnList) {
+        addBttn.addEventListener("click", (event) => {
+            const id = event.currentTarget.dataset.id;
+            addToCart(id);
+        });
+    }
+}
+
+function addToCart(id) {
+    fetch("/be/cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            productID: id,
+            quantity: 1
+        })
+    }).then((response) => {
+        if (response.status == 401) {
+            window.location.href = "/be/login";
+        } else if (response.ok) {
+            alert("Product added to cart.");
+        } else {
+            alert("Product could not be added to cart.");
+            console.error(response.statusText);
+        }
+    });
+}
 
 initPagination();
+initProductAdd();

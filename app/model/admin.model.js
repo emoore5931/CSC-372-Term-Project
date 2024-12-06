@@ -97,6 +97,10 @@ function deleteKitData(productID) {
     db.run("DELETE FROM Products WHERE ID = ?", productID);
 }
 
+function userIsAdmin(userID) {
+    return db.get("SELECT * FROM Users WHERE ID = ? AND userTypeID = ?", userID, 1) ? true : false;
+}
+
 
 module.exports = {
     uploadKitImage,
@@ -106,5 +110,6 @@ module.exports = {
     getAllKitData,
     getKitData,
     deleteImage,
-    deleteKitData
+    deleteKitData,
+    userIsAdmin
 };

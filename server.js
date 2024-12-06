@@ -4,10 +4,12 @@ const app = express();
 const ejs = require("ejs");
 const multer = require("multer");
 const config = require("./config/config");
+const cookieParser = require('cookie-parser');
 
 app.use(multer().none());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 const routes = require("./app/route/route");
 const { db_close } = require("./app/model/db-conn");

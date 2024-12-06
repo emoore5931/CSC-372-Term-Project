@@ -14,11 +14,11 @@
         <label for="isFeatured">Is Featured:</label>
         <input id="isFeatured" name="isFeatured" type="checkbox" value="featured" <% if (productData.productData.featured) { %> checked <% } %>/>
         <br>
-        <label for="description">Description:</label>
-        <input id="description" type="text" value="<%= productData.productData.description %>"/>
-        <br>
         <label for="price">Price:</label>
         <input id="price" type="text" value="<%= productData.productData.price %>"/>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" rows="4" cols="50"><%= productData.productData.description %></textarea>
         <br>
         <label for="contents">Contents:</label>
         <textarea id="contents" rows="4" cols="50"><%= productData.mealKitData.contents %></textarea>
